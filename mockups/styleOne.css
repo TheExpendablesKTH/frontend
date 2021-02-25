@@ -13,6 +13,7 @@
 }
 
 
+
 .columnThin{
     flex: none;
 }
@@ -41,9 +42,14 @@
     display: inline-block;
     text-align: center;
     background-color: limegreen;
-    padding: 200px 20px;
+    height: 400px;
     border-radius: 10px;
 
+}
+.call-button > .flexbox{
+    flex-direction: column;
+    justify-content: center;
+    height: 400px;
 }
 
 .white-text {
@@ -99,3 +105,46 @@ h1 {
     text-align: center;
 }
 
+
+/* scroll-box */
+
+.scroll-container {
+    border: none;
+    direction:ltr;
+    width: 400px;
+}
+
+.scroll-header {
+    direction:rtl;
+    background-color: #f0f0f0;
+}
+
+.scroll-outer {
+    border: 3px solid #3bbbd1;
+    height: 100px;
+    overflow: scroll;
+    overflow-x: hidden;
+    direction: rtl;
+}
+
+.scroll-inner {
+    direction:ltr;
+}
+
+.scroll-row {
+    display: flex;
+    justify-content: center;
+    grid-column-gap: 30px;
+}
+
+.name-button {
+    background-color: #3bbbd1; /* Blue */
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 200px;
+    height: 30px;
+}
