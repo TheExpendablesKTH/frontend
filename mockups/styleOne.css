@@ -15,6 +15,7 @@
 
 
 
+
 .columnThin{
   flex: none;
 }
@@ -37,6 +38,10 @@
 .list-placeholder {
   height: 800px;
   background-color: grey;
+}
+
+.center{
+  text-align: center;
 }
 
 .call-button {
@@ -120,14 +125,24 @@ outline: none;
 .center {
   text-align: center;
 }
+.centerDiv {
+  display: flex;
+  justify-content: center;
+}
 
+.centerDivVertical{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 
 /* scroll-box */
 
 .scroll-container {
   border: none;
   direction:ltr;
-  width: 400px;
+
+
 }
 
 .scroll-header {
@@ -137,14 +152,21 @@ outline: none;
 
 .scroll-outer {
   border: 3px solid #3bbbd1;
-  height: 350px;
   overflow: scroll;
   overflow-x: hidden;
   direction: rtl;
 }
+.largeScroll{
+  height: 700px;
+}
+.mediumScroll{
+  height: 500px;
+}
 
 .scroll-inner {
   direction:ltr;
+  padding: 0px 200px 0px 200px;
+
 }
 
 .scroll-row {
@@ -160,20 +182,10 @@ outline: none;
   text-align: center;
   border-radius: 7px;
   font-size: 20px;
-  width: 200px;
+  width:300px;
   height: 40px;
 }
 
-.name-plate {
-  background-color: #3bbbd1; /* Blue */
-  border: none;
-  color: white;
-  text-align: center;
-  border-radius: 7px;
-  font-size: 20px;
-  width: 200px;
-  height: 40px;
-}
 
 .name-plate:focus { 
 outline: none; 
@@ -186,7 +198,8 @@ outline: none;
   text-align: center;
   border-radius: 7px;
   font-size: 20px;
-  width: 200px;
+
+  width:300px;
   height: 40px;
   cursor: pointer;
 }
