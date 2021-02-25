@@ -84,6 +84,21 @@ h1 {
   text-align: center;
   display: inline-block;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.button:focus { 
+outline: none; 
+}
+
+.button-next {
+  padding: 13px 90px;
+  font-size: 30px;
+}
+
+.button-next:hover {
+  background-color:#2495A8;
+  transition: all 0.3s ease 0s;
 }
 
 
@@ -138,6 +153,32 @@ h1 {
   grid-column-gap: 30px;
 }
 
+.name-plate {
+  background-color: #3bbbd1; /* Blue */
+  border: none;
+  color: white;
+  text-align: center;
+  border-radius: 7px;
+  font-size: 20px;
+  width: 200px;
+  height: 40px;
+}
+
+.name-plate {
+  background-color: #3bbbd1; /* Blue */
+  border: none;
+  color: white;
+  text-align: center;
+  border-radius: 7px;
+  font-size: 20px;
+  width: 200px;
+  height: 40px;
+}
+
+.name-plate:focus { 
+outline: none; 
+}
+
 .name-button {
   background-color: #3bbbd1; /* Blue */
   border: none;
@@ -148,7 +189,10 @@ h1 {
   width: 200px;
   height: 40px;
   cursor: pointer;
+}
 
+.name-button:focus { 
+outline: none; 
 }
 
 .name-button span {
@@ -176,8 +220,7 @@ h1 {
   right: 0;
 }
 
-.remove-button {
-  background-color: #c93e3e;
+.alter-button {
   border: none;
   color: white;
   text-align: center;
@@ -188,10 +231,26 @@ h1 {
   font-size: 24px;
   border-radius: 50%;
   cursor: pointer;
+}
 
+.alter-button:focus { 
+outline: none; 
+}
+
+.remove-button {
+	  background-color: #c93e3e;
+}
+
+.add-button {
+	  background-color: #32CD32;
 }
 
 .remove-button:hover {
   background-color:#973333;
+  transition: all 0.3s ease 0s;
+}
+
+.add-button:hover {
+  background-color:#228B22;
   transition: all 0.3s ease 0s;
 }
