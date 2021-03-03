@@ -6,7 +6,7 @@ function Start() {
     <div>
         <div class="center paddingheader">
             <h1 class='headerstyle'>doGood</h1>
-            <link rel="stylesheet" href="StyleOne.css" />
+            <link rel="stylesheet" href="styleOne.css" />
         </div>
     
     

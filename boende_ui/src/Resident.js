@@ -1,9 +1,8 @@
 import React from "react";
 import {Link} from "react-router-dom";
-
 function Resident(){
     return (
-        <body>
+        <div>
             <div className="button"></div>
             <div className="flexbox">
             <div className="flexbox topAligned">
@@ -26,7 +25,7 @@ function Resident(){
             </div>
             <div className="flexbox"></div>
             </div>
-        </body>
+        </div>
     );
 }
 

@@ -1,13 +1,13 @@
 import React from "react";
 import {Link} from "react-router-dom";
-
+let relatives = ["Syster Curie","Bror Curie","Husdjur Curie"];
 function Relative(){
     return (
-        <body>
+        <div>
             <div className="button"></div>
             <div className="flexbox">
                 <div className="flexbox topAligned">
-                    <Link to =  "/Resident"><img src="./back-arrow.png" /></Link>
+                    <Link to =  "/Resident"><img src={require('./back-arrow.png')} /></Link>
                 </div>
                 <div className="flexbox topAligned">
                     <h1 className="extra-large-text center">Anhöriga</h1>
@@ -35,7 +35,7 @@ function Relative(){
 
             </div>
 
-        </body>
+        </div>
     );
 }
 

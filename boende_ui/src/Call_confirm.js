@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 function Call_confirm(){
     return (
-        <body>
+        <div>
             <div class="button"></div>
             <div class="flexbox">
                 <div class="flexbox columnThin topAligned">
@@ -29,7 +29,7 @@ function Call_confirm(){
                     <h1 class="call-button white-text extra-large-text centerDivVertical">Påbörja samtal <br /> &#9742;</h1>
                 </div>
             </div>
-        </body>
+        </div>
     );
 }
 
