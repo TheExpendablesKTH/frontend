@@ -12,6 +12,8 @@ function Start() {
     
         <div className="center">
             <Link to="/Resident" ><button class="button button1" id='startaSamtal' >Starta Samtal</button></Link>
+            <br></br>
+            <br></br>
             <button class="button button2" id='redigera'>Redigera</button>
         </div>
     </div>

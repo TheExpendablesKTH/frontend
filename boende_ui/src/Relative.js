@@ -1,14 +1,15 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import backarrow from './back-arrow.png';
 
 function Relative(){
-    let relatives = ["Syster Curie","Husdjur Curie","Mamma Curie"];//get the list from backend
+    let relatives = ["Syster Curie","Bror Curie","Husdjur Curie", "Mamma Curie"];
     return (
         <div>
             <div className="button"></div>
             <div className="flexbox">
                 <div className="flexbox topAligned">
-                    <Link to =  "/Resident"><img src={require('./back-arrow.png')} /></Link>
+                    <Link to =  "/Resident"><img src={backarrow} /></Link>
                 </div>
                 <div className="flexbox topAligned">
                     <h1 className="extra-large-text center">Anhöriga</h1>
@@ -18,14 +19,8 @@ function Relative(){
                         </div>
                         <div className="scroll-outer mediumScroll">
                             <div className="scroll-inner">
-                                {
-                                relatives.map(relative => 
-                                    (
-                                        <p className="scroll-row"><button className="name-plate">{relative}</button><button className="alter-button add-button">+</button></p>
-                                    ))
-                                }
-                                
-                                
+                            {relatives.map(relative => (
+                                <p className="scroll-row"><button className="name-plate">{relative}</button><button className="alter-button add-button">+</button></p>))}							
                             </div>
                         </div><br/>
                         <div className="centerDiv">

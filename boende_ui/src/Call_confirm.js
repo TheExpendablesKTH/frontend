@@ -1,13 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
+import backarrow from './back-arrow.png';
 function Call_confirm(){
     return (
         <div>
             <div class="button"></div>
             <div class="flexbox">
                 <div class="flexbox columnThin topAligned">
-                    <Link to = "/Relative"><img src="./back-arrow.png" /></Link>
+                    <Link to = "/Relative"><img src={backarrow} /></Link>
                 </div>
                 <div class="flexbox columnThick topAligned">
                     <h1 class="extra-large-text">Du har bjudit in:</h1>
