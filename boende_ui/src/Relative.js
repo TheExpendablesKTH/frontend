@@ -1,7 +1,8 @@
 import React from "react";
 import {Link} from "react-router-dom";
-let relatives = ["Syster Curie","Bror Curie","Husdjur Curie"];
+
 function Relative(){
+    let relatives = ["Syster Curie","Husdjur Curie","Mamma Curie"];//get the list from backend
     return (
         <div>
             <div className="button"></div>
@@ -17,9 +18,14 @@ function Relative(){
                         </div>
                         <div className="scroll-outer mediumScroll">
                             <div className="scroll-inner">
-                                <p className="scroll-row"><button className="name-plate">Syster Curie</button><button className="alter-button add-button">+</button></p>
-                                <p className="scroll-row"><button className="name-plate">Bror Curie</button><button className="alter-button add-button">+</button></p>
-                                <p className="scroll-row"><button className="name-plate">Husdjur Curie</button><button className="alter-button add-button">+</button></p>								
+                                {
+                                relatives.map(relative => 
+                                    (
+                                        <p className="scroll-row"><button className="name-plate">{relative}</button><button className="alter-button add-button">+</button></p>
+                                    ))
+                                }
+                                
+                                
                             </div>
                         </div><br/>
                         <div className="centerDiv">
