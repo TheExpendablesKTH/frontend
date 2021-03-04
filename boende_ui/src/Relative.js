@@ -20,7 +20,7 @@ function Relative(){
                         <div className="scroll-outer mediumScroll">
                             <div className="scroll-inner">
                             {relatives.map(relative => (
-                                <p className="scroll-row"><button className="name-plate">{relative}</button><button className="alter-button add-button">+</button></p>))}							
+                                <p className="scroll-row"><span className="name-plate">{relative}</span><span className="alter-button add-button">+</span></p>))}							
                             </div>
                         </div><br/>
                         <div className="centerDiv">
