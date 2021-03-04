@@ -22,7 +22,7 @@ function Resident(){
                             {
                                 residents.map(resident => 
                                     (
-                                        <Link to ="/Relative"><p className="scroll-row"><button className="name-button">{resident}</button></p></Link>
+                                        <Link to ="/Relative"><p className="scroll-row"><span className="name-plate">{resident}</span></p></Link>
                                     ))
                             }
                         </div>
