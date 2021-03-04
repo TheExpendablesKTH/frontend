@@ -19,8 +19,12 @@ function Resident(){
                     </div>
                     <div className="scroll-outer largeScroll">
                         <div className="scroll-inner">
-                            {residents.map(resident => (
-                                <Link to ="/Relative"><p className="scroll-row"><button className="name-button">{resident}</button></p></Link>))}
+                            {
+                                residents.map(resident => 
+                                    (
+                                        <Link to ="/Relative"><p className="scroll-row"><button className="name-button">{resident}</button></p></Link>
+                                    ))
+                            }
                         </div>
                     </div>
                 </div>
