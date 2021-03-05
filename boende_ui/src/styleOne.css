@@ -109,6 +109,13 @@ h1 {
   font-size: 38px;
 }
 
+.form-headline {
+  font-size: 32px;
+  font-weight:bold;
+  color:#3a3a3a;
+  margin-bottom:0;
+}
+
 .button {
   background-color: #3bbbd1; /* Blue */
   border: none;
@@ -259,6 +266,32 @@ outline: none;
   opacity: 1;
   right: 0;
 }
+
+input[type=text] {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #3bbbd1;
+  border-radius: 4px;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #3bbbd1; /* Blue */
+  border: none;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 13px 90px;
+  font-size: 30px;
+}
+
+input[type=button], input[type=submit], input[type=reset]:focus {
+  outline: none;
+}
+
 
 .alter-button {
   border: none;

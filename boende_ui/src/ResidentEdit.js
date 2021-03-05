@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import backarrow from './back-arrow.png';
 
-function ResidentEdit(){
+function Resident(){
     let residents = ["Marie Curie","Pierre Curie"];
     return (
         <div>
@@ -38,4 +38,4 @@ function ResidentEdit(){
     );
 }
 
-export default ResidentEdit;
+export default Resident;
