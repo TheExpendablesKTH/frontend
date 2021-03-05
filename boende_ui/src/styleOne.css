@@ -44,15 +44,21 @@
   text-align: center;
 }
 
-.call-button {
+.large-button {
   display: inline-block;
   text-align: center;
-  background-color: limegreen;
+
   height: 400px;
   border-radius: 10px;
 
 }
-.call-button > .flexbox{
+.large-add-button{
+  background-color: Turquoise;
+}
+.call-button{
+  background-color: limegreen;
+}
+.large-button > .flexbox{
   flex-direction: column;
   justify-content: center;
   height: 400px;
@@ -92,8 +98,8 @@ h1 {
   cursor: pointer;
 }
 
-.button:focus { 
-outline: none; 
+.button:focus {
+outline: none;
 }
 
 .button-next {
@@ -187,8 +193,8 @@ outline: none;
 }
 
 
-.name-plate:focus { 
-outline: none; 
+.name-plate:focus {
+outline: none;
 }
 
 .name-button {
@@ -204,8 +210,8 @@ outline: none;
   cursor: pointer;
 }
 
-.name-button:focus { 
-outline: none; 
+.name-button:focus {
+outline: none;
 }
 
 .name-button span {
@@ -250,8 +256,8 @@ a {
   text-decoration: none;
 }
 
-.alter-button:focus { 
-outline: none; 
+.alter-button:focus {
+outline: none;
 }
 
 .remove-button {
