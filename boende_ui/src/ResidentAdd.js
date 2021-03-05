@@ -1,9 +1,13 @@
 import React from "react";
 import {Link} from 'react-router-dom';
+import backarrow from './back-arrow.png';
 
 function ResidentAdd() {
     return (
     <div>
+        <div className="upper-left">
+            <Link to = "/RelativeEdit"><img src={backarrow} /></Link>
+        </div>
         <div class="center paddingheader">
             <h1 class='headerstyle'>Lägg till boende</h1>
             <link rel="stylesheet" href="styleOne.css" />

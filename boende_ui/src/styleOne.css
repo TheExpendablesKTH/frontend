@@ -331,3 +331,11 @@ outline: none;
   background-color:#228B22;
   transition: all 0.3s ease 0s;
 }
+
+/*For placing a back-arrow without flexbox */
+.upper-left{
+  top:0px;
+  left:0px;
+  padding-top: 68px;
+  padding-left: 50px;
+}

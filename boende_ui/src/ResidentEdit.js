@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import backarrow from './back-arrow.png';
 
-function Resident(){
+function ResidentEdit(){
     let residents = ["Marie Curie","Pierre Curie"];
     return (
         <div>
@@ -31,11 +31,11 @@ function Resident(){
 
             </div>
             <div class="flexbox columnMedium bottomAligned">
-                <h1 class="right-button large-button right-add-button white-text extra-large-text centerDivVertical">Lägg till Boende <br /> &#43;</h1>
+                <Link to ="/ResidentAdd"><h1 class="right-button large-button right-add-button white-text extra-large-text centerDivVertical">Lägg till Boende <br /> &#43;</h1></Link>
             </div>
             </div>
         </div>
     );
 }
 
-export default Resident;
+export default ResidentEdit;

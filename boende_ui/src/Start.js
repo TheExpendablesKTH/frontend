@@ -5,7 +5,7 @@ function Start() {
     return (
     <div>
         <div class="center paddingheader">
-            <h1 class='headerstyle'>doGood</h1>
+            <h1 class='headerstyle'>Dogood</h1>
             <link rel="stylesheet" href="styleOne.css" />
         </div>
 
