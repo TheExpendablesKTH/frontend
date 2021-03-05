@@ -6,6 +6,7 @@ import Resident from './Resident';
 import Call_confirm from './Call_confirm';
 import Relative from './Relative';
 import ResidentEdit from './ResidentEdit';
+import RelativeEdit from './RelativeEdit';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route exact path = "/Relative" component = {Relative} />
       <Route exact path = "/Call_confirm" component = {Call_confirm}/>
       <Route exact path = "/ResidentEdit" component = {ResidentEdit}/>
+      <Route exact path = "/RelativeEdit" component = {RelativeEdit}/>
 
     </div>
   );
