@@ -1,29 +1,75 @@
-import React from "react";
+
+import React,{ useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import backarrow from './back-arrow.png';
+import axios from 'axios';
 
 function Resident(){
-    let residents = ["Marie Curie","Pierre Curie"];
+    //let residents = ["Marie Curie","Pierre Curie"];
+    const [loading, setLoading] = useState(true);
+    const [residents,setResidents] = useState(null);
+    const api_url = "http://mock.api.dd1369-meetings.com/users";
+    useEffect(() => {
+        const fetchData = async () => {
+                const result = await axios(api_url);
+                setResidents(result.data);
+                setLoading(false);
+            };
+            fetchData();
+        },[]);
+
+    // axios(api_url)
+    // .then((response) => {
+    //     setResidents(response);
+    // })
+    // .catch((error) => {
+    //     // alert('error');
+    //     if(error.response){
+    //         // alert('response');
+    //         // alert(error.response.data);
+    //         // alert(error.response.status);
+    //         // alert(error.response.headers);
+    //     }
+    //     else if (error.request){
+    //         // alert('request');
+    //         // alert(error.reque);
+            
+    //     }
+    //     else{
+    //         // alert('error', error.message);
+    //     }
+    // })
+    
+    
+    
+    
+    
     return (
         <div>
             <div className="button"></div>
             <div className="flexbox">
             <div className="flexbox topAligned">
                 <Link to = "/"><img src={backarrow} /></Link>
+                
             </div>
             <div className="flexbox topAligned">
                 <h1 className="extra-large-text center">Boende</h1>
                 <div className="scroll-container">
                     <div className="scroll-header">
                         <p className="center">Klicka på namnet på valda boende</p>
+                        
                     </div>
                     <div className="scroll-outer largeScroll">
                         <div className="scroll-inner">
-                            {
-                                residents.map(resident => 
+                            {(loading || residents==null) ? (
+                                <p>loading...</p>
+                            ) : (
+                                residents.users.map(resident => 
                                     (
-                                        <Link to ="/Relative"><p className="scroll-row"><span className="name-plate">{resident}</span></p></Link>
+                                        <Link to ={"/Relative?resident_id="+resident.id}><p className="scroll-row"><span className="name-plate">{resident.name}</span></p></Link>
                                     ))
+                            )
+                            
                             }
                         </div>
                     </div>

@@ -1,9 +1,24 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import {Link} from "react-router-dom";
+import {RouteComponentProps} from "react-router-dom";
 import backarrow from './back-arrow.png';
+import axios from 'axios';
 
 function Relative(){
-    let relatives = ["Syster Curie","Bror Curie","Husdjur Curie", "Mamma Curie"];
+    
+    const [loading, setLoading] = useState(true);
+    const [relatives,setRelatives] = useState(null);
+    const api_url = "http://mock.api.dd1369-meetings.com/users/"+findGetParameter("resident_id")+"/relatives";
+    
+
+    useEffect(() => {
+        const fetchData = async () => {
+                const result = await axios(api_url);
+                setRelatives(result.data);
+                setLoading(false);
+            };
+            fetchData();
+        },[]);
     return (
         <div>
             <div className="button"></div>
@@ -19,12 +34,20 @@ function Relative(){
                         </div>
                         <div className="scroll-outer mediumScroll">
                             <div className="scroll-inner">
-                            {relatives.map(relative => (
-                                <p className="scroll-row"><span className="name-plate">{relative}</span><span className="alter-button add-button">+</span></p>))}							
+                            {
+                                (loading || relatives==null) ? (
+                                    <p>loading...</p>
+                                ) : (
+                                    relatives.relatives.map(relative => 
+                                        (   
+                                            
+                                            <p className="scroll-row"><span className="name-plate">{relative.name}</span><span className="alter-button add-button">+</span></p>
+                                        ))
+                                )}							
                             </div>
                         </div><br/>
                         <div className="centerDiv">
-        
+                                
                                 <Link to = "/Call_confirm"><button className ="button button-next">Gå vidare till samtal</button></Link>
                             
                         </div>
@@ -38,6 +61,19 @@ function Relative(){
 
         </div>
     );
+}
+
+function findGetParameter(parameterName) {
+    var result = null,
+        tmp = [];
+        window.location.search
+        .substr(1)
+        .split("&")
+        .forEach(function (item) {
+          tmp = item.split("=");
+          if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+    return result;
 }
 
 export default Relative;
