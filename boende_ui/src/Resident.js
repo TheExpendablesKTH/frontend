@@ -8,7 +8,7 @@ function Resident(){
     //let residents = ["Marie Curie","Pierre Curie"];
     const [loading, setLoading] = useState(true);
     const [residents,setResidents] = useState(null);
-    const api_url = 'mock.api.dd1369-meetings.com/users';
+    const api_url = "http://mock.api.dd1369-meetings.com/users";
     useEffect(() => {
         const fetchData = async () => {
                 const result = await axios(api_url);
@@ -17,6 +17,28 @@ function Resident(){
             };
             fetchData();
         },[]);
+
+    // axios(api_url)
+    // .then((response) => {
+    //     setResidents(response);
+    // })
+    // .catch((error) => {
+    //     // alert('error');
+    //     if(error.response){
+    //         // alert('response');
+    //         // alert(error.response.data);
+    //         // alert(error.response.status);
+    //         // alert(error.response.headers);
+    //     }
+    //     else if (error.request){
+    //         // alert('request');
+    //         // alert(error.reque);
+            
+    //     }
+    //     else{
+    //         // alert('error', error.message);
+    //     }
+    // })
     
     
     
@@ -44,7 +66,7 @@ function Resident(){
                             ) : (
                                 residents.users.map(resident => 
                                     (
-                                        <Link to ="/Relative"><p className="scroll-row"><span className="name-plate">{resident.name}</span></p></Link>
+                                        <Link to ={"/Relative?resident_id="+resident.id}><p className="scroll-row"><span className="name-plate">{resident.name}</span></p></Link>
                                     ))
                             )
                             
