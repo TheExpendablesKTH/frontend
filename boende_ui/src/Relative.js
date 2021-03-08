@@ -9,7 +9,8 @@ function Relative(){
     const [loading, setLoading] = useState(true);
     const [relatives,setRelatives] = useState(null);
     const api_url = "http://mock.api.dd1369-meetings.com/users/"+findGetParameter("resident_id")+"/relatives";
-    
+
+    const [selected, setSelected] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -19,6 +20,17 @@ function Relative(){
             };
             fetchData();
         },[]);
+
+    const toggleRelative = (relative) => {
+        setSelected((prev) => {
+            if (prev.includes(relative)) {
+                return prev.filter(r => r !== relative);
+            } else {
+                return [relative, ...prev]
+            }
+        });
+    };
+
     return (
         <div>
             <div className="button"></div>
@@ -40,8 +52,12 @@ function Relative(){
                                 ) : (
                                     relatives.relatives.map(relative => 
                                         (   
-                                            
-                                            <p className="scroll-row"><span className="name-plate">{relative.name}</span><span className="alter-button add-button">+</span></p>
+                                            <p className="scroll-row"><span className="name-plate">{relative.name}</span>
+                                            <span className={
+                                            selected.includes(relative) ? "alter-button remove-button" : "alter-button add-button"} 
+                                            onClick={() => toggleRelative(relative)}>
+                                            {selected.includes(relative) ? "-" : "+"}
+                                            </span></p>
                                         ))
                                 )}							
                             </div>
