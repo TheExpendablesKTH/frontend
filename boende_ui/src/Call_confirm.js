@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import {Link} from 'react-router-dom';
 import backarrow from './back-arrow.png';
+
 function Call_confirm(){
+    let relatives = ["Syster Curie","Bror Curie","Husdjur Curie", "Mamma Curie"]; //replace with list from relative selection
+    const [selected, setSelected] = useState(relatives);
+
+    const removeRelative = (relative) => {
+        setSelected((prev) => {
+            if (prev.includes(relative)) {
+                return prev.filter(r => r !== relative);
+            } 
+        });
+    };
+
     return (
         <div>
             <div class="button"></div>
@@ -17,10 +29,15 @@ function Call_confirm(){
                         </div>
                         <div class="scroll-outer largeScroll">
                             <div class="scroll-inner">
-                                <p class="scroll-row"><button class="name-plate">Syster Curie</button><button
-                                        class="alter-button remove-button">-</button></p>
-                                <p class="scroll-row"><button class="name-plate">Husdjur Curie</button><button
-                                        class="alter-button remove-button">-</button></p>
+                                {
+                                (selected.length === 0) ? (
+                                    <p>Du har inte valt några kontakter! Gå tillbaka och börja om</p>
+                                ) : (
+                                    selected.map(relative => (
+                                    <p className="scroll-row"><span className="name-plate">{relative}</span>
+                                        <span className="alter-button remove-button" onClick={() => removeRelative(relative)}>-</span></p>
+                                    ))
+                                )}
                             </div>
                         </div>
                     </div>
