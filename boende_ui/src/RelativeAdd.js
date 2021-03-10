@@ -1,15 +1,18 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import backarrow from './back-arrow.png';
+import { findGetParameter } from "./Relative";
+import Resident from "./Resident";
 
 function RelativeAdd() {
+    const resident_name = findGetParameter("resident_name");
     return (
     <div>
         <div className="upper-left">
           <Link to = "/RelativeEdit"><img src={backarrow} /></Link>
         </div>
         <div class="center paddingheader">
-            <h1 class='headerstyle'>Lägg till anhörig</h1>
+            <h1 class='headerstyle'>Lägg till anhörig till: {resident_name}</h1>
             <link rel="stylesheet" href="styleOne.css" />
         </div>
 

@@ -11,6 +11,7 @@ function RelativeEdit(){
     const [relatives,setRelatives] = useState(null);
     const resident_id = findGetParameter("resident_id");
     const api_url = "http://mock.api.dd1369-meetings.com/users/"+resident_id+"/relatives";
+    const resident_name = findGetParameter("resident_name");
     
 
     useEffect(() => {
@@ -43,7 +44,7 @@ function RelativeEdit(){
                                 ) : (
                                 relatives.map(relative =>
                                     (
-                                        <Link to ={"/RelativeEditor?resident_id="+resident_id+"&relative_id="+relative.id}><p className="scroll-row"><span className="name-plate">{relative.name}</span></p></Link>
+                                        <Link to ={"/RelativeEditor?resident_id="+resident_id+"&relative_id="+relative.id+"&resident_name="+resident_name}><p className="scroll-row"><span className="name-plate">{relative.name}</span></p></Link>
                                     ))
                              )}
                         </div>
@@ -52,7 +53,7 @@ function RelativeEdit(){
 
             </div>
             <div class="flexbox columnMedium bottomAligned">
-                <Link to ="/RelativeAdd"><h1 class="right-button large-button right-add-button white-text extra-large-text centerDivVertical">Lägg till anhörig <br /> &#43;</h1></Link>
+                <Link to ={"/RelativeAdd?resident_id="+resident_id+"&resident_name="+resident_name}><h1 class="right-button large-button right-add-button white-text extra-large-text centerDivVertical">Lägg till anhörig <br /> &#43;</h1></Link>
                 <h1 class="right-button medium-button right-remove-button white-text extra-large-text centerDivVertical flexcenter">Ta bort boende <br /> &#45;</h1>
             </div>
             </div>

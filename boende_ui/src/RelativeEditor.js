@@ -10,6 +10,7 @@ function RelativeEditor() {
     const [relative, setRelative] = useState(null);
     const resident_id = findGetParameter("resident_id");
     const relative_id = findGetParameter("relative_id");
+    const resident_name = findGetParameter("resident_name");
     const api_url = "http://mock.api.dd1369-meetings.com/users/" + resident_id + "/relatives";
 
 
@@ -38,7 +39,7 @@ function RelativeEditor() {
                 ) : (
                     <div>
                         <div class="center paddingheader">
-                            <h1 class='headerstyle'>Redigera anhörig: {relative.name}</h1>
+                            <h1 class='headerstyle'>Redigera anhörig till: {resident_name}</h1>
                             <link rel="stylesheet" href="styleOne.css" />
                         </div>
                         <div className="center">

@@ -38,7 +38,7 @@ function ResidentEdit(){
                                 ) : (
                                 residents.map(resident =>
                                     (
-                                        <Link to ={"/RelativeEdit?resident_id="+resident.id}><p className="scroll-row"><span className="name-plate">{resident.name}</span></p></Link>
+                                        <Link to ={"/RelativeEdit?resident_id="+resident.id+"&resident_name="+resident.name}><p className="scroll-row"><span className="name-plate">{resident.name}</span></p></Link>
                                     ))
                             )}
                         </div>
