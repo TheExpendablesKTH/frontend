@@ -38,7 +38,7 @@ function RelativeEditor() {
                 ) : (
                     <div>
                         <div class="center paddingheader">
-                            <h1 class='headerstyle'>Redigera anhörig</h1>
+                            <h1 class='headerstyle'>Redigera anhörig: {relative.name}</h1>
                             <link rel="stylesheet" href="styleOne.css" />
                         </div>
                         <div className="center">
@@ -46,7 +46,7 @@ function RelativeEditor() {
                                 <label>                                
                                     <p class="form-headline">Namn:</p>
                                     <br></br>
-                                    <input type="text" name="name" value={relative.id} />
+                                    <input type="text" name="name" value={relative.name} />
                                     <br></br>
                                     <p class="form-headline" >Telefonnummer:</p>
                                     <br></br>
@@ -59,26 +59,6 @@ function RelativeEditor() {
                     </div>
 
                 )}
-
-
-
-            {/* <div className="center">
-        <form>
-            <label>
-                
-                
-              <p class ="form-headline">Namn:</p>
-              <br></br>
-             <input type="text" name="name" />
-             <br></br>
-             <p class ="form-headline">Telefonnummer:</p>
-              <br></br>
-             <input type="text" name="phone" />
-            </label>
-            <br></br>
-            <input type="submit" value="Spara" />
-        </form>
-        </div> */}
         </div>
 
     );
