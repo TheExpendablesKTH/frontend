@@ -6,7 +6,7 @@ function ResidentAdd() {
     return (
     <div>
         <div className="upper-left">
-            <Link to = "/RelativeEdit"><img src={backarrow} /></Link>
+            <Link to = "/ResidentEdit"><img src={backarrow} /></Link>
         </div>
         <div class="center paddingheader">
             <h1 class='headerstyle'>Lägg till boende</h1>

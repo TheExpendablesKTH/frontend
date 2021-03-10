@@ -28,7 +28,7 @@ function RelativeEditor() {
     return (
         <div>
             <div className="upper-left">
-                <Link to="/RelativeEdit"><img src={backarrow} /></Link>
+                <Link to={"/RelativeEdit?resident_id="+resident_id+"&resident_name="+resident_name}><img src={backarrow} /></Link>
             </div>
             {
                 (loading || relatives == null || relative == null) ? (

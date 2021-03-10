@@ -6,10 +6,11 @@ import Resident from "./Resident";
 
 function RelativeAdd() {
     const resident_name = findGetParameter("resident_name");
+    const resident_id = findGetParameter("resident_id");
     return (
     <div>
         <div className="upper-left">
-          <Link to = "/RelativeEdit"><img src={backarrow} /></Link>
+          <Link to = {"/RelativeEdit?resident_id="+resident_id+"&resident_name="+resident_name}><img src={backarrow} /></Link>
         </div>
         <div class="center paddingheader">
             <h1 class='headerstyle'>Lägg till anhörig till: {resident_name}</h1>
