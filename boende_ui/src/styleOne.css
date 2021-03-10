@@ -13,7 +13,13 @@
   justify-content: flex-start;
 }
 
+.flexcenter{
+  align-self: center;
+}
 
+.flexbase{
+  align-self: baseline;
+}
 
 
 .columnThin{
@@ -44,7 +50,7 @@
   text-align: center;
 }
 
-.large-button {
+.right-button {
   display: inline-block;
   text-align: center;
 
@@ -52,13 +58,28 @@
   border-radius: 10px;
 
 }
-.large-add-button{
+
+.large-button{
+  height: 400px;
+  border-radius: 10px;
+}
+
+.medium-button{
+  height: 300px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.right-add-button{
   background-color: Turquoise;
 }
 .call-button{
   background-color: limegreen;
 }
-.large-button > .flexbox{
+.right-remove-button{
+  background-color: red;
+}
+.right-button > .flexbox{
   flex-direction: column;
   justify-content: center;
   height: 400px;
@@ -86,6 +107,13 @@ h1 {
 
 .headerstyle {
   font-size: 38px;
+}
+
+.form-headline {
+  font-size: 32px;
+  font-weight:bold;
+  color:#3a3a3a;
+  margin-bottom:0;
 }
 
 .button {
@@ -239,6 +267,32 @@ outline: none;
   right: 0;
 }
 
+input[type=text] {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #3bbbd1;
+  border-radius: 4px;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #3bbbd1; /* Blue */
+  border: none;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 13px 90px;
+  font-size: 30px;
+}
+
+input[type=button], input[type=submit], input[type=reset]:focus {
+  outline: none;
+}
+
+
 .alter-button {
   border: none;
   color: white;
@@ -276,4 +330,12 @@ outline: none;
 .add-button:hover {
   background-color:#228B22;
   transition: all 0.3s ease 0s;
+}
+
+/*For placing a back-arrow without flexbox */
+.upper-left{
+  top:0px;
+  left:0px;
+  padding-top: 68px;
+  padding-left: 50px;
 }

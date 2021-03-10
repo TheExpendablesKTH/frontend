@@ -12,37 +12,11 @@ function Resident(){
     useEffect(() => {
         const fetchData = async () => {
                 const result = await axios(api_url);
-                setResidents(result.data);
+                setResidents(result.data.users);
                 setLoading(false);
             };
             fetchData();
         },[]);
-
-    // axios(api_url)
-    // .then((response) => {
-    //     setResidents(response);
-    // })
-    // .catch((error) => {
-    //     // alert('error');
-    //     if(error.response){
-    //         // alert('response');
-    //         // alert(error.response.data);
-    //         // alert(error.response.status);
-    //         // alert(error.response.headers);
-    //     }
-    //     else if (error.request){
-    //         // alert('request');
-    //         // alert(error.reque);
-            
-    //     }
-    //     else{
-    //         // alert('error', error.message);
-    //     }
-    // })
-    
-    
-    
-    
     
     return (
         <div>
@@ -64,7 +38,7 @@ function Resident(){
                             {(loading || residents==null) ? (
                                 <p>loading...</p>
                             ) : (
-                                residents.users.map(resident => 
+                                residents.map(resident => 
                                     (
                                         <Link to ={"/Relative?resident_id="+resident.id}><p className="scroll-row"><span className="name-plate">{resident.name}</span></p></Link>
                                     ))

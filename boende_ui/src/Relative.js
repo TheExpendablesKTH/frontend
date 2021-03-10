@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from "react";
 import {Link} from "react-router-dom";
-import {RouteComponentProps} from "react-router-dom";
+
 import backarrow from './back-arrow.png';
 import axios from 'axios';
 
@@ -14,7 +14,7 @@ function Relative(){
     useEffect(() => {
         const fetchData = async () => {
                 const result = await axios(api_url);
-                setRelatives(result.data);
+                setRelatives(result.data.relatives);
                 setLoading(false);
             };
             fetchData();
@@ -38,7 +38,7 @@ function Relative(){
                                 (loading || relatives==null) ? (
                                     <p>loading...</p>
                                 ) : (
-                                    relatives.relatives.map(relative => 
+                                    relatives.map(relative => 
                                         (   
                                             
                                             <p className="scroll-row"><span className="name-plate">{relative.name}</span><span className="alter-button add-button">+</span></p>
@@ -63,7 +63,7 @@ function Relative(){
     );
 }
 
-function findGetParameter(parameterName) {
+export function findGetParameter(parameterName) {
     var result = null,
         tmp = [];
         window.location.search
