@@ -9,7 +9,7 @@ function Relative(){
     const [loading, setLoading] = useState(true);
     const [relatives,setRelatives] = useState(null);
     const api_url = "http://mock.api.dd1369-meetings.com/users/"+findGetParameter("resident_id")+"/relatives";
-    
+    const [chosenRels,setChosenRels] = useState([1,2,3,4,5]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -39,8 +39,7 @@ function Relative(){
                                     <p>loading...</p>
                                 ) : (
                                     relatives.map(relative => 
-                                        (   
-                                            
+                                        (                                               
                                             <p className="scroll-row"><span className="name-plate">{relative.name}</span><span className="alter-button add-button">+</span></p>
                                         ))
                                 )}							
@@ -48,7 +47,7 @@ function Relative(){
                         </div><br/>
                         <div className="centerDiv">
                                 
-                                <Link to = "/Call_confirm"><button className ="button button-next">Gå vidare till samtal</button></Link>
+                                <Link to = {{pathname:"/Call_confirm", chosenRels:chosenRels}}><button className ="button button-next">Gå vidare till samtal</button></Link>
                             
                         </div>
                     </div>

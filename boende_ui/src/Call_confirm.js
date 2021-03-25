@@ -1,13 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import backarrow from './back-arrow.png';
-function Call_confirm(){
+function Call_confirm(props){
     return (
         <div>
             <div class="button"></div>
             <div class="flexbox">
                 <div class="flexbox columnThin topAligned">
                     <Link to = "/Relative"><img src={backarrow} /></Link>
+                    <p>{props.location.chosenRels[0]}</p>
+                    <p>{props.location.chosenRels[1]}</p>
                 </div>
                 <div class="flexbox columnThick topAligned">
                     <h1 class="extra-large-text">Du har bjudit in:</h1>
