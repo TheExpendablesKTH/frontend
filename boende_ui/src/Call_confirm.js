@@ -9,13 +9,15 @@ function Call_confirm(props){
     //const [selected, setSelected] = useState(relatives);
     const [loading, setLoading] = useState(true); //useless im p sure
     const [selected, setSelected] = useState([]);
-    const resident_id = findGetParameter("resident_id");
+    const [residentId, setResidentId] = useState();
+    //const resident_id = findGetParameter("resident_id");
 
     useEffect(() => {
-        alert("in Call_confirm");
+        //alert("in Call_confirm");
 	console.log("in effect");
 	if (props.location.selected != undefined) {
         	setSelected(props.location.selected);
+		setResidentId(props.location.residentId);
 	}
         setLoading(false);
         },[]);
@@ -33,7 +35,7 @@ function Call_confirm(props){
             <div class="button"></div>
             <div class="flexbox">
                 <div class="flexbox columnThin topAligned">
-                    <Link to = {"/Relative?resident_id="+resident_id}><img src={backarrow} /></Link>
+                    <Link to = {"/Relative?resident_id="+residentId}><img src={backarrow} /></Link>
                 </div>
                 <div class="flexbox columnThick topAligned">
                     <h1 class="extra-large-text">Du har bjudit in:</h1>
