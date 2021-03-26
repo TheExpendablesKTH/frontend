@@ -65,7 +65,7 @@ function Relative(){
                         </div><br/>
                         <div className="centerDiv">
                                 
-                                <Link to = {{pathname:"/Call_confirm?resident_id="+resident_id, selected:selected}}><button className ="button button-next">Gå vidare till samtal</button></Link>
+                                <Link to = {{pathname:"/Call_confirm", selected:selected, residentId:resident_id}}><button className ="button button-next">Gå vidare till samtal</button></Link>
                             
                         </div>
                     </div>
