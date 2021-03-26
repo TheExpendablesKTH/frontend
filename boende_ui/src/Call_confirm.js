@@ -1,10 +1,24 @@
 import React, { useState, useEffect } from "react";
 import {Link} from 'react-router-dom';
 import backarrow from './back-arrow.png';
+import { findGetParameter } from './Relative';
 
-function Call_confirm(){
-    let relatives = ["Syster Curie","Bror Curie","Husdjur Curie", "Mamma Curie"]; //replace with list from relative selection
-    const [selected, setSelected] = useState(relatives);
+function Call_confirm(props){
+    
+    //let relatives = ["Syster Curie","Bror Curie","Husdjur Curie", "Mamma Curie"]; //replace with list from relative selection
+    //const [selected, setSelected] = useState(relatives);
+    const [loading, setLoading] = useState(true); //useless im p sure
+    const [selected, setSelected] = useState([]);
+    const resident_id = findGetParameter("resident_id");
+
+    useEffect(() => {
+        alert("in Call_confirm");
+	console.log("in effect");
+	if (props.location.selected != undefined) {
+        	setSelected(props.location.selected);
+	}
+        setLoading(false);
+        },[]);
 
     const removeRelative = (relative) => {
         setSelected((prev) => {
@@ -19,7 +33,7 @@ function Call_confirm(){
             <div class="button"></div>
             <div class="flexbox">
                 <div class="flexbox columnThin topAligned">
-                    <Link to = "/Relative"><img src={backarrow} /></Link>
+                    <Link to = {"/Relative?resident_id="+resident_id}><img src={backarrow} /></Link>
                 </div>
                 <div class="flexbox columnThick topAligned">
                     <h1 class="extra-large-text">Du har bjudit in:</h1>
@@ -34,7 +48,7 @@ function Call_confirm(){
                                     <p>Du har inte valt några kontakter! Gå tillbaka och börja om</p>
                                 ) : (
                                     selected.map(relative => (
-                                    <p className="scroll-row"><span className="name-plate">{relative}</span>
+                                    <p className="scroll-row"><span className="name-plate">{relative.name}</span>
                                         <span className="alter-button remove-button" onClick={() => removeRelative(relative)}>-</span></p>
                                     ))
                                 )}
