@@ -8,7 +8,8 @@ function Relative(){
     
     const [loading, setLoading] = useState(true);
     const [relatives,setRelatives] = useState(null);
-    const api_url = "http://mock.api.dd1369-meetings.com/users/"+findGetParameter("resident_id")+"/relatives";
+    const resident_id = findGetParameter("resident_id");
+    const api_url = "http://mock.api.dd1369-meetings.com/users/"+resident_id+"/relatives";
 
     const [selected, setSelected] = useState([]);
 
@@ -64,7 +65,7 @@ function Relative(){
                         </div><br/>
                         <div className="centerDiv">
                                 
-                                <Link to = "/Call_confirm"><button className ="button button-next">Gå vidare till samtal</button></Link>
+                                <Link to = {{pathname:"/Call_confirm?resident_id="+resident_id, selected:selected}}><button className ="button button-next">Gå vidare till samtal</button></Link>
                             
                         </div>
                     </div>
