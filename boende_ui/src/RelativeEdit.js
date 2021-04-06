@@ -24,7 +24,9 @@ function RelativeEdit(){
         },[]);
 
     return (
-        <div>
+        <div><ul class="breadcrumb br2">
+        <li>Redigerar: visar anhöriga till {resident_id}</li>
+        </ul>
             <div className="button"></div>
             <div className="flexbox">
             <div className="flexbox columnThin topAligned">

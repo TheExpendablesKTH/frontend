@@ -13,8 +13,6 @@ function RelativeEditor() {
     const resident_name = findGetParameter("resident_name");
     const api_url = "http://mock.api.dd1369-meetings.com/users/" + resident_id + "/relatives";
 
-
-
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios(api_url);
@@ -26,7 +24,9 @@ function RelativeEditor() {
     }, []);
 
     return (
-        <div>
+        <div><ul class="breadcrumb br2">
+        <li>Redigerar: anhörig till {resident_id}</li>
+        </ul>
             <div className="upper-left">
                 <Link to={"/RelativeEdit?resident_id="+resident_id+"&resident_name="+resident_name}><img src={backarrow} /></Link>
             </div>
@@ -56,6 +56,9 @@ function RelativeEditor() {
                                 <br></br>
                                 <input type="submit" value="Spara" />
                             </form>
+                        <br></br>
+                        <br></br>
+                        <button class="button button2" id='raderaAnhorig' >Radera Anhörig</button>
                         </div>
                     </div>
 

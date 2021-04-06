@@ -33,8 +33,9 @@ function Relative(){
     };
 
     return (
-        <div>
-            <div className="button"></div>
+        <div><ul class="breadcrumb br1">
+        <li>Samtal: Visar för boende {resident_id}</li>
+        </ul>
             <div className="flexbox">
                 <div className="flexbox topAligned">
                     <Link to =  "/Resident"><img src={backarrow} /></Link>

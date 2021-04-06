@@ -18,7 +18,9 @@ function ResidentEdit(){
         },[]);
 
     return (
-        <div>
+        <div><ul class="breadcrumb br2">
+        <li>Redigerar: redigera boende</li>
+        </ul>
             <div className="button"></div>
             <div className="flexbox">
             <div className="flexbox columnThin topAligned">

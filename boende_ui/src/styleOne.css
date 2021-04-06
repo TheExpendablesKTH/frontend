@@ -1,4 +1,24 @@
 
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  text-align:center;
+}
+
+ul.breadcrumb li {
+  display: inline;
+  font-size: 22px;
+}
+
+.br1{
+  background-color: #8ddfee;
+}
+
+.br2{
+  background-color: #ee8b8b;
+}
+
+
 .flexbox {
   display: flex;
   flex-direction: row;
@@ -159,6 +179,7 @@ outline: none;
 .center {
   text-align: center;
 }
+
 .centerDiv {
   display: flex;
   justify-content: center;

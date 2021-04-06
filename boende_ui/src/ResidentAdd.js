@@ -4,7 +4,9 @@ import backarrow from './back-arrow.png';
 
 function ResidentAdd() {
     return (
-    <div>
+    <div><ul class="breadcrumb br2">
+    <li>Redigerar: Lägg till boende</li>
+    </ul>
         <div className="upper-left">
             <Link to = "/ResidentEdit"><img src={backarrow} /></Link>
         </div>

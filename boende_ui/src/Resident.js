@@ -19,7 +19,9 @@ function Resident(){
         },[]);
     
     return (
-        <div>
+        <div><ul class="breadcrumb br1">
+        <li>Visar: anhöriga till</li>
+        </ul>
             <div className="button"></div>
             <div className="flexbox">
             <div className="flexbox topAligned">

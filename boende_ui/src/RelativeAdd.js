@@ -8,7 +8,9 @@ function RelativeAdd() {
     const resident_name = findGetParameter("resident_name");
     const resident_id = findGetParameter("resident_id");
     return (
-    <div>
+    <div><ul class="breadcrumb br2">
+    <li>Redigerar: Lägg till anhörig till</li>
+    </ul>
         <div className="upper-left">
           <Link to = {"/RelativeEdit?resident_id="+resident_id+"&resident_name="+resident_name}><img src={backarrow} /></Link>
         </div>
