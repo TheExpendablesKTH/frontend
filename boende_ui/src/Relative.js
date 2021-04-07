@@ -9,7 +9,7 @@ function Relative(){
     const [loading, setLoading] = useState(true);
     const [relatives,setRelatives] = useState(null);
     const resident_id = findGetParameter("resident_id");
-    const api_url = "http://mock.api.dd1369-meetings.com/users/"+resident_id+"/relatives";
+    const api_url = "http://mock.api.dd1369-meetings.com/residents/"+resident_id+"/relatives";
 
     const [selected, setSelected] = useState([]);
 

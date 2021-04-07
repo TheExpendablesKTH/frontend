@@ -7,11 +7,11 @@ function ResidentEdit(){
     
     const [loading, setLoading] = useState(true);
     const [residents,setResidents] = useState(null);
-    const api_url = "http://mock.api.dd1369-meetings.com/users";
+    const api_url = "http://mock.api.dd1369-meetings.com/residents";
     useEffect(() => {
         const fetchData = async () => {
                 const result = await axios(api_url);
-                setResidents(result.data.users);
+                setResidents(result.data);
                 setLoading(false);
             };
             fetchData();
