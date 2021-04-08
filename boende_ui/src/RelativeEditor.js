@@ -11,7 +11,7 @@ function RelativeEditor() {
     const resident_id = findGetParameter("resident_id");
     const relative_id = findGetParameter("relative_id");
     const resident_name = findGetParameter("resident_name");
-    const api_url = "http://mock.api.dd1369-meetings.com/users/" + resident_id + "/relatives";
+    const api_url = "http://mock.api.dd1369-meetings.com/residents/" + resident_id + "/relatives";
 
     useEffect(() => {
         const fetchData = async () => {
