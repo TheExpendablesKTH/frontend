@@ -13,27 +13,25 @@ function ResidentEditor() {
     const resident_name = findGetParameter("resident_name");
     const api_url = "http://mock.api.dd1369-meetings.com/residents/" + resident_id + "/relatives";
 
-
-
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios(api_url);
-            setRelatives(result.data.relatives);
+            //setRelatives(result.data.relatives);
             setLoading(false);
-            setRelative(result.data.relatives.find(r=> r.id.toString() === relative_id.toString()));
+            //setRelative(result.data.relatives.find(r=> r.id.toString() === relative_id.toString()));
         };
         fetchData();
     }, []);
 
     return (
         <div><ul class="breadcrumb br2">
-        <li>Redigerar: redigera boende {resident_id}</li>
+        <li>Redigera: Redigerar boende {resident_name}</li>
         </ul>
             <div className="upper-left">
                 <Link to={"/RelativeEdit?resident_id="+resident_id+"&resident_name="+resident_name}><img src={backarrow} /></Link>
             </div>
             {
-                (loading || relatives == null || relative == null) ? (
+                (loading) ? (
                     <div class="center paddingheader">
                         <h1 class='headerstyle'>Laddar...</h1>
                         <link rel="stylesheet" href="styleOne.css" />
@@ -41,7 +39,7 @@ function ResidentEditor() {
                 ) : (
                     <div>
                         <div class="center paddingheader">
-                            <h1 class='headerstyle'>Redigera boende: {resident_name}</h1>
+                            <h1 class='headerstyle'>Redigerar {resident_name}</h1>
                             <link rel="stylesheet" href="styleOne.css" />
                         </div>
                         <div className="center">
@@ -56,7 +54,7 @@ function ResidentEditor() {
                             </form>
                         <br></br>
                         <br></br>
-                        <button class="button button2" id='raderaAnhorig' >Radera Boende</button>
+                        <button class="button button2" id='raderaAnhorig' >Radera {resident_name}</button>
                         </div>
                     </div>
 
