@@ -25,7 +25,7 @@ function RelativeEditor() {
 
     return (
         <div><ul class="breadcrumb br2">
-        <li>Redigerar: anhörig till {resident_id}</li>
+        <li>Redigera: Redigerar anhörig till {resident_name}</li>
         </ul>
             <div className="upper-left">
                 <Link to={"/RelativeEdit?resident_id="+resident_id+"&resident_name="+resident_name}><img src={backarrow} /></Link>
@@ -39,7 +39,7 @@ function RelativeEditor() {
                 ) : (
                     <div>
                         <div class="center paddingheader">
-                            <h1 class='headerstyle'>Redigera anhörig till: {resident_name}</h1>
+                            <h1 class='headerstyle'>Redigerar {relative.name}</h1>
                             <link rel="stylesheet" href="styleOne.css" />
                         </div>
                         <div className="center">
@@ -58,7 +58,7 @@ function RelativeEditor() {
                             </form>
                         <br></br>
                         <br></br>
-                        <button class="button button2" id='raderaAnhorig' >Radera Anhörig</button>
+                        <button class="button button2" id='raderaAnhorig' >Radera {relative.name}</button>
                         </div>
                     </div>
 
