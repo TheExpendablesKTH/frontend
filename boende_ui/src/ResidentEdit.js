@@ -19,7 +19,7 @@ function ResidentEdit(){
 
     return (
         <div><ul class="breadcrumb br2">
-        <li>Redigerar: redigera boende</li>
+        <li>Redigera: Väljer boende att redigera</li>
         </ul>
             <div className="button"></div>
             <div className="flexbox">
@@ -38,7 +38,7 @@ function ResidentEdit(){
                                 (loading || residents==null) ? (
                                     <p>loading...</p>
                                 ) : (
-                                residents.map(resident =>
+                                residents.sort((a, b) => (a.name > b.name) ? 1 : -1).map(resident =>
                                     (
                                         <Link to ={"/RelativeEdit?resident_id="+resident.id+"&resident_name="+resident.name}><p className="scroll-row"><span className="name-plate">{resident.name}</span></p></Link>
                                     ))
@@ -49,7 +49,7 @@ function ResidentEdit(){
 
             </div>
             <div class="flexbox columnMedium bottomAligned">
-                <Link to ="/ResidentAdd"><h1 class="right-button large-button right-add-button white-text extra-large-text centerDivVertical">Lägg till Boende <br /> &#43;</h1></Link>
+                <Link to ="/ResidentAdd"><h1 class="right-button large-button right-add-button white-text extra-large-text centerDivVertical">Lägg till boende <br /> &#43;</h1></Link>
             </div>
             </div>
         </div>
