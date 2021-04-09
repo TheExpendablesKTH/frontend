@@ -7,15 +7,16 @@ import Resident from "./Resident";
 function RelativeAdd() {
     const resident_name = findGetParameter("resident_name");
     const resident_id = findGetParameter("resident_id");
+
     return (
     <div><ul class="breadcrumb br2">
-    <li>Redigerar: Lägg till anhörig till</li>
+    <li>Redigera: Lägger till anhörig till {resident_name}</li>
     </ul>
         <div className="upper-left">
           <Link to = {"/RelativeEdit?resident_id="+resident_id+"&resident_name="+resident_name}><img src={backarrow} /></Link>
         </div>
         <div class="center paddingheader">
-            <h1 class='headerstyle'>Lägg till anhörig till: {resident_name}</h1>
+            <h1 class='headerstyle'>Lägger till anhörig</h1>
             <link rel="stylesheet" href="styleOne.css" />
         </div>
 
