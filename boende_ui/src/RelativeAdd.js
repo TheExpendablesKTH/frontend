@@ -16,7 +16,7 @@ function RelativeAdd() {
           <Link to = {"/RelativeEdit?resident_id="+resident_id+"&resident_name="+resident_name}><img src={backarrow} /></Link>
         </div>
         <div class="center paddingheader">
-            <h1 class='headerstyle'>Lägger till anhörig</h1>
+            <h1 class='headerstyle'>Lägg till anhörig</h1>
             <link rel="stylesheet" href="styleOne.css" />
         </div>
 
