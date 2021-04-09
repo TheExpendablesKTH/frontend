@@ -20,7 +20,7 @@ function Resident(){
     
     return (
         <div><ul class="breadcrumb br1">
-        <li>Visar: anhöriga till</li>
+        <li>Starta samtal: Väljer boende som ska ringa</li>
         </ul>
             <div className="button"></div>
             <div className="flexbox">
@@ -40,9 +40,9 @@ function Resident(){
                             {(loading || residents==null) ? (
                                 <p>loading...</p>
                             ) : (
-                                residents.map(resident => 
+                                residents.sort((a, b) => (a.name > b.name) ? 1 : -1).map(resident => 
                                     (
-                                        <Link to ={"/Relative?resident_id="+resident.id}><p className="scroll-row"><span className="name-plate">{resident.name}</span></p></Link>
+                                        <Link to ={"/Relative?resident_id="+resident.id+"&resident_name="+resident.name}><p className="scroll-row"><span className="name-plate">{resident.name}</span></p></Link>
                                     ))
                             )
                             
