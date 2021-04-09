@@ -10,14 +10,16 @@ function Call_confirm(props){
     const [loading, setLoading] = useState(true); //useless im p sure
     const [selected, setSelected] = useState([]);
     const [residentId, setResidentId] = useState();
+    const [residentName, setResidentName] = useState();
     //const resident_id = findGetParameter("resident_id");
 
     useEffect(() => {
         //alert("in Call_confirm");
-	console.log("in effect");
+	//console.log("in effect");
 	if (props.location.selected != undefined) {
         	setSelected(props.location.selected);
 		setResidentId(props.location.residentId);
+		setResidentName(props.location.residentName);
 	}
         setLoading(false);
         },[]);
@@ -31,11 +33,13 @@ function Call_confirm(props){
     };
 
     return (
-        <div>
+        <div><ul class="breadcrumb br1">
+        <li>Starta samtal: Bekräftar samtal av {residentName}</li>
+        </ul>
             <div class="button"></div>
             <div class="flexbox">
                 <div class="flexbox columnThin topAligned">
-                    <Link to = {"/Relative?resident_id="+residentId}><img src={backarrow} /></Link>
+                    <Link to = {"/Relative?resident_id="+residentId+"&resident_name="+residentName}><img src={backarrow} /></Link>
                 </div>
                 <div class="flexbox columnThick topAligned">
                     <h1 class="extra-large-text">Du har bjudit in:</h1>
@@ -47,9 +51,9 @@ function Call_confirm(props){
                             <div class="scroll-inner">
                                 {
                                 (selected.length === 0) ? (
-                                    <p>Du har inte valt några kontakter! Gå tillbaka och börja om</p>
+                                    <p>Du har inte valt några kontakter! Gå tillbaka och försök igen</p>
                                 ) : (
-                                    selected.map(relative => (
+                                    selected.sort((a, b) => (a.name > b.name) ? 1 : -1).map(relative => (
                                     <p className="scroll-row"><span className="name-plate">{relative.name}</span>
                                         <span className="alter-button remove-button" onClick={() => removeRelative(relative)}>-</span></p>
                                     ))
