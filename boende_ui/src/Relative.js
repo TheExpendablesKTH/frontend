@@ -9,6 +9,7 @@ function Relative(){
     const [loading, setLoading] = useState(true);
     const [relatives,setRelatives] = useState(null);
     const resident_id = findGetParameter("resident_id");
+    const resident_name = findGetParameter("resident_name");
     const api_url = "http://mock.api.dd1369-meetings.com/residents/"+resident_id+"/relatives";
 
     const [selected, setSelected] = useState([]);
@@ -34,7 +35,7 @@ function Relative(){
 
     return (
         <div><ul class="breadcrumb br1">
-        <li>Samtal: Visar för boende {resident_id}</li>
+        <li>Starta samtal: Väljer vem {resident_name} ska ringa till</li>
         </ul>
             <div className="flexbox">
                 <div className="flexbox topAligned">
@@ -52,7 +53,7 @@ function Relative(){
                                 (loading || relatives==null) ? (
                                     <p>loading...</p>
                                 ) : (
-                                    relatives.map(relative => 
+                                    relatives.sort((a, b) => (a.name > b.name) ? 1 : -1).map(relative => 
                                         (   
                                             <p className="scroll-row"><span className="name-plate">{relative.name}</span>
                                             <span className={
@@ -66,7 +67,7 @@ function Relative(){
                         </div><br/>
                         <div className="centerDiv">
                                 
-                                <Link to = {{pathname:"/Call_confirm", selected:selected, residentId:resident_id}}><button className ="button button-next">Gå vidare till samtal</button></Link>
+                                <Link to = {{pathname:"/Call_confirm", selected:selected, residentId:resident_id, residentName:resident_name}}><button className ="button button-next">Gå vidare till samtal</button></Link>
                             
                         </div>
                     </div>
