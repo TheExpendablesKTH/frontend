@@ -39,7 +39,7 @@ function RelativeEditor() {
                 ) : (
                     <div>
                         <div class="center paddingheader">
-                            <h1 class='headerstyle'>Redigerar {relative.name}</h1>
+                            <h1 class='headerstyle'>Redigera {relative.name}</h1>
                             <link rel="stylesheet" href="styleOne.css" />
                         </div>
                         <div className="center">
