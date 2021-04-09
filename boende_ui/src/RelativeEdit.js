@@ -25,7 +25,7 @@ function RelativeEdit(){
 
     return (
         <div><ul class="breadcrumb br2">
-        <li>Redigerar: visar anhöriga till {resident_id}</li>
+        <li>Redigera: Visar {resident_name}</li>
         </ul>
             <div className="button"></div>
             <div className="flexbox">
@@ -44,7 +44,7 @@ function RelativeEdit(){
                                 (loading || relatives==null) ? (
                                     <p>loading...</p>
                                 ) : (
-                                relatives.map(relative =>
+                                relatives.sort((a, b) => (a.name > b.name) ? 1 : -1).map(relative =>
                                     (
                                         <Link to ={"/RelativeEditor?resident_id="+resident_id+"&relative_id="+relative.id+"&resident_name="+resident_name}><p className="scroll-row"><span className="name-plate">{relative.name}</span></p></Link>
                                     ))
@@ -56,7 +56,7 @@ function RelativeEdit(){
             </div>
             <div class="flexbox columnMedium bottomAligned">
                 <Link to ={"/RelativeAdd?resident_id="+resident_id+"&resident_name="+resident_name}><h1 class="right-button large-button right-add-button white-text extra-large-text centerDivVertical">Lägg till anhörig <br /> &#43;</h1></Link>
-                <h1 class="right-button medium-button right-remove-button white-text extra-large-text centerDivVertical flexcenter">Ta bort boende <br /> &#45;</h1>
+                <Link to ={"/ResidentEditor?resident_id="+resident_id+"&resident_name="+resident_name}><h1 class="right-button medium-button right-add-button white-text extra-large-text centerDivVertical flexcenter">Redigera {resident_name}</h1></Link>
             </div>
             </div>
         </div>
