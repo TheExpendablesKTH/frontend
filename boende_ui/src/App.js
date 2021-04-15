@@ -11,11 +11,13 @@ import RelativeEdit from './RelativeEdit';
 import ResidentAdd from './ResidentAdd';
 import RelativeAdd from './RelativeAdd';
 import RelativeEditor from './RelativeEditor';
+import DeviceAuthentication from './DeviceAuthentication';
 
 function App() {
   return (
     <div className="App">
-      <Route exact path = "/" component = {Start} />
+      <Route exact path = "/" component = {DeviceAuthentication} />
+      <Route exact path = "/Start" component = {Start} />
       <Route exact path = "/Resident" component = {Resident} />
       <Route exact path = "/Relative" component = {Relative} />
       <Route exact path = "/Call_confirm" component = {Call_confirm}/>
