@@ -360,3 +360,23 @@ outline: none;
   padding-top: 68px;
   padding-left: 50px;
 }
+
+/*Should center object at center of screen no matter*/
+
+.absoluteCenter{
+  position: fixed;
+  top:25vh;
+  left:60vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*.*/
