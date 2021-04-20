@@ -14,7 +14,7 @@ function Start() {
             <Link to="/Resident" ><button class="button button1" id='startaSamtal' >Starta samtal</button></Link>
             <br></br>
             <br></br>
-            <Link to="/ResidentEdit" ><button class="button button2" id='redigera'>Redigera</button></Link>
+            <Link to="/LoginConfirm" ><button class="button button2" id='redigera'>Redigera</button></Link>
         </div>
     </div>
 
