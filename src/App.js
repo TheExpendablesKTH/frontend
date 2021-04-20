@@ -12,6 +12,8 @@ import ResidentAdd from './ResidentAdd';
 import RelativeAdd from './RelativeAdd';
 import RelativeEditor from './RelativeEditor';
 import DeviceAuthentication from './DeviceAuthentication';
+import LoginForm from './LoginForm';
+import LoginConfirm from './LoginConfirm';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
       <Route exact path = "/ResidentAdd" component = {ResidentAdd}/>
       <Route exact path = "/RelativeAdd" component = {RelativeAdd} />
       <Route exact path = "/RelativeEditor" component = {RelativeEditor} />
+      <Route exact path = "/LoginForm" component = {LoginForm} />
+      <Route exact path = "/LoginConfirm" component = {LoginConfirm} />
     </div>
   );
 }
