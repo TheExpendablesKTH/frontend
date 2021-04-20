@@ -3,12 +3,14 @@ import {Link} from "react-router-dom";
 import backarrow from './back-arrow.png';
 import axios from 'axios';
 
-function ResidentEdit(){
+function ResidentEdit(props){
     
     const [loading, setLoading] = useState(true);
     const [residents,setResidents] = useState(null);
+    const [adminToken, setAdminToken] = useState();
     const api_url = "http://mock.api.dd1369-meetings.com/residents";
     useEffect(() => {
+        setAdminToken(props.location.adminToken);
         const fetchData = async () => {
                 const result = await axios(api_url);
                 setResidents(result.data);
@@ -24,7 +26,7 @@ function ResidentEdit(){
             <div className="button"></div>
             <div className="flexbox">
             <div className="flexbox columnThin topAligned">
-                <Link to = "/"><img src={backarrow} /></Link>
+                <Link to = "/Start"><img src={backarrow} /></Link>
             </div>
             <div className="flexbox columnThick topAligned">
                 <h1 className="extra-large-text center">Boende</h1>
