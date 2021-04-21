@@ -14,6 +14,7 @@ import RelativeEditor from './RelativeEditor';
 import DeviceAuthentication from './DeviceAuthentication';
 import LoginForm from './LoginForm';
 import LoginConfirm from './LoginConfirm';
+import ConfirmDeleteRes from './ConfirmDeleteRes';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
       <Route exact path = "/RelativeEditor" component = {RelativeEditor} />
       <Route exact path = "/LoginForm" component = {LoginForm} />
       <Route exact path = "/LoginConfirm" component = {LoginConfirm} />
+      <Route exact path = "/ConfirmDeleteRes" component = {ConfirmDeleteRes}/>
     </div>
   );
 }
