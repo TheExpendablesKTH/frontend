@@ -18,7 +18,7 @@ function Relative(){
     useEffect(() => {
         const fetchData = async () => {
                 const result = await axios(api_url,{headers:{'Content-Type':'application/json','Authorization':admin_token}});
-                setRelatives(result.data.relatives);
+                setRelatives(result.data);                
                 setLoading(false);
             };
             fetchData();
@@ -52,7 +52,7 @@ function Relative(){
                             <div className="scroll-inner">
                             {
                                 (loading || relatives==null) ? (
-                                    <p>loading...</p>
+                                    <p>loading...</p>                                
                                 ) : (
                                     relatives.sort((a, b) => (a.name > b.name) ? 1 : -1).map(relative => 
                                         (   
