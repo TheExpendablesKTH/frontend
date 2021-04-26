@@ -20,7 +20,7 @@ function DeviceAuthentication(){
                   setHasToken(true);
                   setLoading(false);
                 }else{
-                  setHasToken(true); //should be false, but done like this to auto-skip until everything works
+                  setHasToken(false); //should be false, but can be set to true to auto-skip
                   setLoading(false);
                 }
             };
@@ -29,7 +29,7 @@ function DeviceAuthentication(){
 
       function userClickedAuthenticate(newPassword){
         const fetchAndStoreData = async () => {
-            storeToken(await axios(api_url+'/authenticate/device',{'passphrase':newPassword},{headers:{'Content-Type':'application/json'}}));
+            storeToken(await axios.post(api_url+'/authenticate/device',{'passphrase':newPassword},{headers:{'Content-Type':'application/json'}}));
 
         };
         fetchAndStoreData();
