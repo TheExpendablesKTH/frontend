@@ -25,7 +25,7 @@ function ResidentEdit(props){
             <div className="button"></div>
             <div className="flexbox">
             <div className="flexbox columnThin topAligned">
-                <Link to = "/Start"><img src={backarrow} /></Link>
+                <Link to = "/Start"><img src={backarrow} alt="backarrow" /></Link>
             </div>
             <div className="flexbox columnThick topAligned">
                 <h1 className="extra-large-text center">Boende</h1>

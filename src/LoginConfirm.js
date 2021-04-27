@@ -9,7 +9,7 @@ function LoginConfirm() {
             <li> Loggar in som admin </li>
         </ul>
         <div className="upper-left">
-          <Link to = {"/Start"}><img src={backarrow} /></Link>
+          <Link to = {"/Start"}><img src={backarrow} alt="backarrow" /></Link>
         </div>
         <div class="center paddingheader">
             <p class='headerstyle'>Du har försökt komma åt en sida som kräver inloggning som admin.</p>

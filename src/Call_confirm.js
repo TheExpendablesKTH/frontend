@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {Link} from 'react-router-dom';
 import backarrow from './back-arrow.png';
-import { findGetParameter } from './Relative';
+
 
 function Call_confirm(props){
     
@@ -16,7 +16,7 @@ function Call_confirm(props){
     useEffect(() => {
         //alert("in Call_confirm");
 	//console.log("in effect");
-	if (props.location.selected != undefined) {
+	if (props.location.selected !== undefined) {
         	setSelected(props.location.selected);
 		setResidentId(props.location.residentId);
 		setResidentName(props.location.residentName);

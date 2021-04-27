@@ -1,6 +1,6 @@
-import logo from './logo.svg';
+
 import './styleOne.css';
-import {Route,Link} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import Start from './Start';
 import Resident from './Resident';
 import Call_confirm from './Call_confirm';

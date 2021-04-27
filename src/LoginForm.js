@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {Link, Redirect} from 'react-router-dom';
 import backarrow from './back-arrow.png';
 import axios from 'axios';
@@ -27,7 +27,7 @@ function LoginForm() {
     <li> Loggar in som admin </li>
     </ul>
         <div className="upper-left">
-          <Link to = {"/LoginConfirm"}><img src={backarrow} /></Link>
+          <Link to = {"/LoginConfirm"}><img src={backarrow} alt="backarrow" /></Link>
         </div>
         <div class="center paddingheader">
             <h1 class="headerstyle">Logga in som admin</h1>

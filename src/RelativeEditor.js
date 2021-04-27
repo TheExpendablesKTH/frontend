@@ -25,11 +25,6 @@ function RelativeEditor() {
             setLoading(false);
         };
     
-    // const deleteRelative = async(e) => {
-    //     e.preventDefault();
-    //     setLoading(true);
-    //     await axios.delete(api_url + "/residents/" + resident_id + "/relatives/"+ relative_id,{headers:{'Content-Type':'application/json', 'Authorization':admin_token}});
-    // }
 
     useEffect(() => {
         const fetchData = async () => {
@@ -46,7 +41,7 @@ function RelativeEditor() {
         <li>Redigera: Redigerar anhörig till {resident_name}</li>
         </ul>
             <div className="upper-left">
-                <Link to={"/RelativeEdit?resident_id="+resident_id+"&resident_name="+resident_name}><img src={backarrow} /></Link>
+                <Link to={"/RelativeEdit?resident_id="+resident_id+"&resident_name="+resident_name}><img src={backarrow} alt="backarrow"/></Link>
             </div>
             {
                 (loading || relatives == null || relative == null) ? (

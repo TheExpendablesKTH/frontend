@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef} from "react";
+import React, { useRef } from "react";
 import {Link} from 'react-router-dom';
 import backarrow from './back-arrow.png';
 import { findGetParameter } from "./Relative";
-import Resident from "./Resident";
 import axios from 'axios';
 function RelativeAdd() {
     const resident_name = findGetParameter("resident_name");
@@ -20,7 +19,7 @@ function RelativeAdd() {
     <li>Redigera: Lägger till anhörig till {resident_name}</li>
     </ul>
         <div className="upper-left">
-          <Link to = {"/RelativeEdit?resident_id="+resident_id+"&resident_name="+resident_name}><img src={backarrow} /></Link>
+          <Link to = {"/RelativeEdit?resident_id="+resident_id+"&resident_name="+resident_name}><img src={backarrow} alt="backarrow" /></Link>
         </div>
         <div class="center paddingheader">
             <h1 class='headerstyle'>Lägg till anhörig</h1>

@@ -40,7 +40,7 @@ function Relative(){
         </ul>
             <div className="flexbox">
                 <div className="flexbox topAligned">
-                    <Link to =  "/Resident"><img src={backarrow} /></Link>
+                    <Link to =  "/Resident"><img src={backarrow} alt="backarrow" /></Link>
                 </div>
                 <div className="flexbox topAligned">
                     <h1 className="extra-large-text center">Anhöriga</h1>
