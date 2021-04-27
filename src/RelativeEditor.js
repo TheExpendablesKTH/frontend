@@ -16,14 +16,14 @@ function RelativeEditor() {
     const api_url = "http://master.api.dd1369-meetings.com";
     const admin_token = localStorage.getItem("admin_token");
     
-    // const updateRelative = async (e) => {
-    //         e.preventDefault();
-    //         setLoading(true);        
-    //         const deleteRequest = axios.delete(api_url + "/residents/" + resident_id + "/relatives/"+ relative_id,{headers: {'Content-Type':'application/json', 'Authorization':admin_token}});                      
-    //         const saveRequest = axios.post(api_url + "/residents/"+resident_id + "/relatives",{'name':nameToSave.current.value, 'phone':phoneToSave.current.value},{headers: {'Content-Type':'application/json', 'Authorization':admin_token}});      
-    //         await axios.all([deleteRequest,saveRequest]);
-    //         setLoading(false);
-    //     };
+    const updateRelative = async (e) => {
+            e.preventDefault();
+            setLoading(true);        
+            //const deleteRequest = axios.delete(api_url + "/residents/" + resident_id + "/relatives/"+ relative_id,{headers: {'Content-Type':'application/json', 'Authorization':admin_token}});                      
+            const saveRequest = axios.post(api_url + "/residents/"+resident_id + "/relatives",{'name':nameToSave.current.value, 'phone':phoneToSave.current.value},{headers: {'Content-Type':'application/json', 'Authorization':admin_token}});      
+            await axios.all([deleteRequest,saveRequest]);
+            setLoading(false);
+        };
     
     // const deleteRelative = async(e) => {
     //     e.preventDefault();
@@ -60,16 +60,16 @@ function RelativeEditor() {
                             <h1 class='headerstyle'>Redigera {relative.name}</h1>
                             <link rel="stylesheet" href="styleOne.css" />
                         </div>
-                        <div className="center">
-                            <form /* onSubmit= {updateRelative} */>
+                        <div className="center">                        
+                            <form  onSubmit= {updateRelative} >
                                 <label>                                
                                     <p class="form-headline">Namn:</p>
                                     <br></br>
-                                    <input type="text" name="name" value={relative.name} /* ref={nameToSave} */ />
+                                    <input type="text" name="name" ref={nameToSave} />
                                     <br></br>
                                     <p class="form-headline" >Telefonnummer:</p>
                                     <br></br>
-                                    <input type="text" name="phone" value={relative.phone} /* ref={phoneToSave} */ />
+                                    <input type="text" name="phone" ref={phoneToSave} />
                                 </label>
                                 <br></br>
                                 <input type="submit" value="Spara" />
