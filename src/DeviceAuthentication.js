@@ -29,7 +29,8 @@ function DeviceAuthentication(){
 
       function userClickedAuthenticate(newPassword){
         const fetchAndStoreData = async () => {
-            storeToken(await axios.post(api_url+'/authenticate/device',{'passphrase':newPassword},{headers:{'Content-Type':'application/json'}}));
+          const result = await axios.post(api_url+'/authenticate/device',{'passphrase':newPassword},{headers:{'Content-Type':'application/json'}});  
+          storeToken(result.data.token);
 
         };
         fetchAndStoreData();

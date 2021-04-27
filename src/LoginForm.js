@@ -7,7 +7,7 @@ function LoginForm() {
     const [failed, setFailed] = useState(false);
     const [admin_token, setAdminToken] = useState(null);
     const api_url = "http://master.api.dd1369-meetings.com/";
-    const device_token = "eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAAABXMQQ5AMBAAwK_IniuxqzT2HU5EpNGN9EClLRfxd9wnc4NPCRhcWENwoMDbDIwtdg3VqI2CM0nc7SY_kssvMi9RbBY328xUEZaVLsn0iFwTkxm-5JC4fa8P-3-PqAqtimaC5wXl2A9qbwAAAA.7WGQGnYoQu1y6PhLXqIG5xg5fVhK8MSvVRJaBBP2YlY";
+    const device_token = localStorage.getItem("DeviceToken");
     
     const handleSubmit = async (e) => {
         e.preventDefault();
