@@ -17,12 +17,14 @@ import LoginForm from './LoginForm';
 import LoginConfirm from './LoginConfirm';
 import ConfirmDeleteRes from './ConfirmDeleteRes';
 import ConfirmDeleteRel from './ConfirmDeleteRel';
+import CallView from './CallView';
 
 function App() {
   return (
     <div className="App">
       <Route exact path = "/" component = {DeviceAuthentication} />
       <Route exact path = "/AdminAuthentication" component = {AdminAuthentication} />
+      <Route exact path = "/Callview" component = {CallView} />
       <Route exact path = "/Start" component = {Start} />
       <Route exact path = "/Resident" component = {Resident} />
       <Route exact path = "/Relative" component = {Relative} />

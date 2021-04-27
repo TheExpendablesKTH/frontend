@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 
 import React, { useEffect, useState, useRef } from "react";
-import './styles.css';
+import './styleOne.css';
 import CallWrapper from "./call";
 import EndCallButton from "./endCallButton.png";
 
