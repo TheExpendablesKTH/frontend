@@ -7,21 +7,20 @@ function ResidentEdit(props){
     
     const [loading, setLoading] = useState(true);
     const [residents,setResidents] = useState(null);
-    const [adminToken, setAdminToken] = useState();
-    const api_url = "http://mock.api.dd1369-meetings.com/residents";
+    const api_url = "http://master.api.dd1369-meetings.com/residents";
     useEffect(() => {
-        setAdminToken(props.location.adminToken);
         const fetchData = async () => {
-                const result = await axios(api_url);
+                const result = await axios(api_url,{headers:{'Content-Type':'application/json','Authorization':props.location.admin_token}});
                 setResidents(result.data);
                 setLoading(false);
             };
             fetchData();
-        },[]);
+    },[]);
 
     return (
         <div><ul class="breadcrumb br2">
         <li>Redigera: Väljer boende att redigera</li>
+        
         </ul>
             <div className="button"></div>
             <div className="flexbox">
