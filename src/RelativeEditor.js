@@ -19,7 +19,7 @@ function RelativeEditor() {
     const updateRelative = async (e) => {
             e.preventDefault();
             setLoading(true);        
-            //const deleteRequest = axios.delete(api_url + "/residents/" + resident_id + "/relatives/"+ relative_id,{headers: {'Content-Type':'application/json', 'Authorization':admin_token}});                      
+            const deleteRequest = axios.delete(api_url + "/residents/" + resident_id + "/relatives/"+ relative_id,{headers: {'Content-Type':'application/json', 'Authorization':admin_token}});                      
             const saveRequest = axios.post(api_url + "/residents/"+resident_id + "/relatives",{'name':nameToSave.current.value, 'phone':phoneToSave.current.value},{headers: {'Content-Type':'application/json', 'Authorization':admin_token}});      
             await axios.all([deleteRequest,saveRequest]);
             setLoading(false);
