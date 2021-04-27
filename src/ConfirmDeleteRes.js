@@ -8,11 +8,11 @@ function ConfirmDeleteRes(){
     const [loading, setLoading] = useState(false);
     const resident_id = findGetParameter("resident_id");
     const resident_name = findGetParameter("resident_name");
-    const api_url = "http://master.api.dd1369-meetings.com/residents";
+    const api_url = "http://master.api.dd1369-meetings.com";
     const deleteResident = async (e) => {
         setLoading(true);        
         e.preventDefault();    
-        await axios.delete(api_url+"/"+resident_id,{headers: {'Content-Type':'application/json', 'Authorization':localStorage.getItem("admin_token")}});                      
+        await axios.delete(api_url+"/residents/"+resident_id,{headers: {'Content-Type':'application/json', 'Authorization':localStorage.getItem("admin_token")}});                      
         setLoading(false);       
     };
     return(
