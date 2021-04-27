@@ -29,7 +29,7 @@ function DeviceAuthentication(){
 
       function userClickedAuthenticate(newPassword){
         const fetchAndStoreData = async () => {
-          const result = await axios.post(api_url+'/authenticate/device',{'passphrase':newPassword},{headers:{'Content-Type':'application/json'}});  
+          const result = await axios.post(api_url+'/authenticate/device',{'passphrase':newPassword},{headers:{'Content-Type':'application/json'}});
           storeToken(result.data.token);
 
         };
@@ -46,7 +46,7 @@ function DeviceAuthentication(){
     return (
       <div>
         {loading && <div className="absoluteCenter"> <img src={anim} alt="" /></div>}
-        {!loading && hasToken && <Redirect to="/Start"/>}
+        {!loading && hasToken && <Redirect to="/AdminAuthentication"/>}
         {!loading && !hasToken && <div className="center">
           <h1>Contact Dogood at ___-___ __ __</h1>
         <input
