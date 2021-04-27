@@ -7,11 +7,10 @@ import axios from 'axios';
 function Resident(){    
     const [loading, setLoading] = useState(true);
     const [residents,setResidents] = useState(null);
-    const admin_token ="eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAAABXLMQ6AIAwAwK-Qzh3EGgN-xTiQ0JgOUENxMv5d3O8eEDPYIOupmgFBUofNrz5EmhYihNu41VR4oM7WUy5Sh7u4lVFF69_3GR2hi-jCAe8Hn9XQrFUAAAA.YfG4Z-45ykLbThHxkyJ4XojOB8dtmIq4907owb-7xyc"; 
     const api_url = "http://master.api.dd1369-meetings.com/residents";
     useEffect(() => {
         const fetchData = async () => {
-                const result = await axios(api_url,{headers:{'Content-Type':'application/json','Authorization':admin_token}});
+                const result = await axios(api_url,{headers:{'Content-Type':'application/json','Authorization':localStorage.getItem("admin_token")}});
                 setResidents(result.data);
                 setLoading(false);
             };

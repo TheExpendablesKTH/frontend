@@ -5,7 +5,6 @@ import axios from 'axios';
 function LoginForm() {
     const [loggedIn, setLoggedIn] = useState(false);
     const [failed, setFailed] = useState(false);
-    const [admin_token, setAdminToken] = useState(null);
     const api_url = "http://master.api.dd1369-meetings.com/";
     const device_token = localStorage.getItem("DeviceToken");
     
@@ -17,13 +16,13 @@ function LoginForm() {
             setFailed(true);
         });
         if (!failed){
-            setAdminToken(result.data.token);            
+            localStorage.setItem("admin_token",result.data.token);            
             setLoggedIn(true);            
         }
     };
     return (
     <div>
-    {loggedIn && <Redirect to={{pathname:"/ResidentEdit", admin_token:admin_token}}/>}
+    {loggedIn && <Redirect to={{pathname:"/ResidentEdit"}}/>}
     {!loggedIn && <div><ul class="breadcrumb br2">
     <li> Loggar in som admin </li>
     </ul>

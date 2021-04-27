@@ -12,11 +12,10 @@ function RelativeEdit(){
     const resident_id = findGetParameter("resident_id");
     const api_url = "http://master.api.dd1369-meetings.com/residents/"+resident_id+"/relatives";
     const resident_name = findGetParameter("resident_name");
-    const admin_token ="eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAAABXLMQ6AIAwAwK-Qzh3EGgN-xTiQ0JgOUENxMv5d3O8eEDPYIOupmgFBUofNrz5EmhYihNu41VR4oM7WUy5Sh7u4lVFF69_3GR2hi-jCAe8Hn9XQrFUAAAA.YfG4Z-45ykLbThHxkyJ4XojOB8dtmIq4907owb-7xyc"; 
 
     useEffect(() => {
         const fetchData = async () => {
-                const result = await axios(api_url,{headers:{'Content-Type':'application/json','Authorization':admin_token}});
+                const result = await axios(api_url,{headers:{'Content-Type':'application/json','Authorization':localStorage.getItem("admin_token")}});
                 setRelatives(result.data);
                 setLoading(false);
             };

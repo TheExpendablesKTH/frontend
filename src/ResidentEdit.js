@@ -10,7 +10,7 @@ function ResidentEdit(props){
     const api_url = "http://master.api.dd1369-meetings.com/residents";
     useEffect(() => {
         const fetchData = async () => {
-                const result = await axios(api_url,{headers:{'Content-Type':'application/json','Authorization':props.location.admin_token}});
+                const result = await axios(api_url,{headers:{'Content-Type':'application/json','Authorization':localStorage.getItem("admin_token")}});
                 setResidents(result.data);
                 setLoading(false);
             };

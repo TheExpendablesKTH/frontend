@@ -10,10 +10,9 @@ function RelativeAdd() {
     const nameToSave = useRef(null);
     const phoneToSave = useRef(null);
     const api_url = "http://master.api.dd1369-meetings.com/residents/"+resident_id+"/relatives";
-    const admin_token ="eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAAABXLMQ6AIAwAwK-Qzh3EGgN-xTiQ0JgOUENxMv5d3O8eEDPYIOupmgFBUofNrz5EmhYihNu41VR4oM7WUy5Sh7u4lVFF69_3GR2hi-jCAe8Hn9XQrFUAAAA.YfG4Z-45ykLbThHxkyJ4XojOB8dtmIq4907owb-7xyc"; 
     const saveRelative = async (e) => {
         e.preventDefault();            
-        await axios.post(api_url,{'name':nameToSave.current.value,'phone':phoneToSave.current.value},{headers: {'Content-Type':'application/json', 'Authorization':admin_token}});            
+        await axios.post(api_url,{'name':nameToSave.current.value,'phone':phoneToSave.current.value},{headers: {'Content-Type':'application/json', 'Authorization':localStorage.getItem("admin_token")}});            
     };
 
     return (
