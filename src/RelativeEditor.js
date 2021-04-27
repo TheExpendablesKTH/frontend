@@ -13,8 +13,8 @@ function RelativeEditor() {
     const resident_id = findGetParameter("resident_id");
     const relative_id = findGetParameter("relative_id");
     const resident_name = findGetParameter("resident_name");
-    const api_url = "http://master.api.dd1369-meetings.com;
-    admin_token = localStorage.getItem("admin_token");
+    const api_url = "http://master.api.dd1369-meetings.com";
+    const admin_token = localStorage.getItem("admin_token");
     
     // const updateRelative = async (e) => {
     //         e.preventDefault();
@@ -61,22 +61,22 @@ function RelativeEditor() {
                             <link rel="stylesheet" href="styleOne.css" />
                         </div>
                         <div className="center">
-                            <form onSubmit={updateRelative}>
+                            <form /* onSubmit= {updateRelative} */>
                                 <label>                                
                                     <p class="form-headline">Namn:</p>
                                     <br></br>
-                                    <input type="text" name="name" value={relative.name} ref={nameToSave} />
+                                    <input type="text" name="name" value={relative.name} /* ref={nameToSave} */ />
                                     <br></br>
                                     <p class="form-headline" >Telefonnummer:</p>
                                     <br></br>
-                                    <input type="text" name="phone" value={relative.phone} ref={phoneToSave} />
+                                    <input type="text" name="phone" value={relative.phone} /* ref={phoneToSave} */ />
                                 </label>
                                 <br></br>
                                 <input type="submit" value="Spara" />
                             </form>
                         <br></br>
                         <br></br>
-                        <button class="button button2" id='raderaAnhorig' >Radera {relative.name}</button>
+                        <Link to={"/ConfirmDeleteRel?resident_id="+resident_id+"&resident_name="+resident_name+"&relative_id="+relative_id+"&relative_name="+relative.name}><button class="button button2" id='raderaAnhorig' >Radera {relative.name}</button></Link>
                         </div>
                     </div>
 

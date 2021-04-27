@@ -9,17 +9,11 @@ function ResidentEditor() {
     const [loading, setLoading] = useState(false);
     const resident_id = findGetParameter("resident_id");
     const resident_name = findGetParameter("resident_name");
-    const api_url = "http://master.api.dd1369-meetings.com/residents";
+    const relative_id = findGetParameter("relative_id");
+    const relative_name = findGetParameter("relative_name");
+    const api_url = "http://master.api.dd1369-meetings.com/";
     
     
-    // const updateResident = async (e) => {
-    //     e.preventDefault();
-    //     setLoading(true);        
-    //     // const deleteRequest = axios.delete(api_url+"/"+resident_id,{headers: {'Content-Type':'application/json', 'Authorization':admin_token}});                      
-    //     // const saveRequest = axios.post(api_url,{'name':nameToSave.current.value},{headers: {'Content-Type':'application/json', 'Authorization':admin_token}});      
-    //     // await axios.all([deleteRequest,saveRequest]);
-    //     setLoading(false);
-    // };
 
 
     return (
