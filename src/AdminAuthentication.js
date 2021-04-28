@@ -22,14 +22,15 @@ function AdminAuthentication(){
                   setHasToken(true);
                   setLoading(false);
                 }else{
-                  setHasToken(true); //should be false, but can be set to true to auto-skip
+                  setHasToken(false); //should be false, but can be set to true to auto-skip
                   setLoading(false);
+              
                 }
             };
             check();
         },[loading]);
 
-      function userClickedAuthenticate(name, username, password){
+    function userClickedAuthenticate(name, username, password){
         const fetchAndStoreData = async () => {
           setHasAdmin(  await axios.post(api_url + "/admin",
           {'name':name,'username':username,'password':password},
@@ -37,18 +38,21 @@ function AdminAuthentication(){
           {'Content-Type':'application/json','Authorization':localStorage.getItem("DeviceToken")}}));
 
           getAndStoreToken(username, password);
-
         };
         fetchAndStoreData();
         }
 
-      function getAndStoreToken(username, password){
+    function getAndStoreToken(username, password){
         const getAndStoreTokenTwo = async () => {
         if(hasAdmin!==""){
-          localStorage.setItem("AdminToken", ""); //Change empty string to axios call
+          const result = await axios.post(api_url + "/authenticate/admin",
+          {'username':username,'password':password},{headers:
+          {'Content-Type':'application/json','Authorization':localStorage.getItem("DeviceToken")}});
+
+          localStorage.setItem("AdminToken", result.data.token);
         setLoading(true);
       }else{
-        setTimeout(getAndStoreToken, 1000);
+        setTimeout(getAndStoreToken, 10);
       }
     };
     getAndStoreTokenTwo();
@@ -74,8 +78,9 @@ function AdminAuthentication(){
     <input
         ref={inputPassword}
     />
+    <br/>
           <button onClick={() => userClickedAuthenticate(inputName.current.value, inputUserName.current.value, inputPassword.current.value)}>Authenticate</button>
-            
+
         </div>
       }
       </div>
