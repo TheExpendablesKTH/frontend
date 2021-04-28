@@ -9,7 +9,7 @@ const CallView = () => {
     const externalId = findGetParameter("externalId");
     const inputRef = useRef();
     const [connecting, setConnecting] = useState(true);
-    const [call] = useState(new CallWrapper('http://mock.api.dd1369-meetings.com', 'foobar'));
+    const [call] = useState(new CallWrapper('http://master.api.dd1369-meetings.com', 'foobar'));
 
 
 

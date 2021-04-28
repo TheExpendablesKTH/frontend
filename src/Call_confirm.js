@@ -17,7 +17,7 @@ function Call_confirm(props){
         //alert("in Call_confirm");
 	//console.log("in effect");
 	if (props.location.selected !== undefined) {
-        	setSelected(props.location.selected);
+        setSelected(props.location.selected);
 		setResidentId(props.location.residentId);
 		setResidentName(props.location.residentName);
 	}
