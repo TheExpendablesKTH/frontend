@@ -29,19 +29,20 @@ export default class CallWrapper {
     /**
      * Connect to a chime meeting
      *
-     * @param   {String}  externalId  an external user id
+     * @param   {String}  externalIds  an array of external user ids
      */
-    async connectToChimeMeeting(externalId) {
+    async connectToChimeMeeting(externalIds) {
         if (this.hasActiveCall()) {
             throw new Error('meeting session already in progress');
         }
 
         let meetingConfig;
         try {
-            const response = await axios.post(`${this.endpoint}/calls/tmp/${externalId}`, {}, { //
+            const response = await axios.post(`${this.endpoint}/call`, {relatives:externalIds}, { //
                 headers: {
                     'Authorization': this.key,
-                },
+                    'Content-Type':'application/json'
+                }
             });
             meetingConfig = new MeetingSessionConfiguration(
                 {
