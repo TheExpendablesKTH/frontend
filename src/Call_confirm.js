@@ -62,8 +62,8 @@ function Call_confirm(props){
                         </div>
                     </div>
                 </div>
-                <div class="flexbox columnMedium bottomAligned">
-                    <h1 class="right-button call-button large-button white-text extra-large-text centerDivVertical">Påbörja samtal <br /> &#9742;</h1>
+                <div className="flexbox columnMedium bottomAligned">
+                    <Link to={{pathname:"/CallView?resident_id="+residentId,selected:selected}}><h1 class="right-button call-button large-button white-text extra-large-text centerDivVertical">Påbörja samtal <br /> &#9742;</h1></Link>
                 </div>
             </div>
         </div>

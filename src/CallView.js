@@ -4,26 +4,31 @@ import React, { useEffect, useState, useRef } from "react";
 import './styleOne.css';
 import CallWrapper from "./call";
 import EndCallButton from "./endCallButton.png";
-
-const CallView = () => {
-    const externalId = findGetParameter("externalId");
+import axios from "axios";
+function CallView(props) {
+    const externalIds = [7];/*props.location.selected .map(r => r.id) */;
+    const api_url = 'http://master.api.dd1369-meetings.com';
+    const device_token = localStorage.getItem("DeviceToken");
+    const resident_id = findGetParameter("resident_id");
     const inputRef = useRef();
     const [connecting, setConnecting] = useState(true);
-    const [call] = useState(new CallWrapper('http://master.api.dd1369-meetings.com', 'foobar'));
-
-
-
-
-
+    const [call] = useState(new CallWrapper(api_url));
+    const [residentToken,setResidentToken] = useState(null);
     useEffect(() => {
-      const connect = async () => {
-        if (!externalId) return;
-        await call.connectToChimeMeeting(externalId);
+      const getResidentToken = async() =>{      
+        const result = await axios.post(api_url+"/authenticate/resident",{'id':resident_id},{headers:{'Content-Type':'application/json','Authorization':device_token}});
+        setResidentToken(result.data.token);
+        if (!residentToken || !externalIds){ return;}
+        await call.connectToChimeMeeting(externalIds,residentToken);
         call.startWatching();
-    }; connect();
-
+      }; getResidentToken();
+    //   const connect = async () => {
+    //     if (!residentToken || !externalIds) return;
+    //     alert("in");
+        
+    // }; connect();
       doAStream();
-    }, [call, externalId]);
+    }, [call, externalIds]);
 
     function doAStream(){
       if(call.hasActiveCall()){
@@ -58,7 +63,7 @@ const CallView = () => {
     return (
       <div>
           <div id="EndCall-Button">
-            <Link to = "./StartView"><img src={EndCallButton} /></Link>
+            <Link to = "./Start"><img src={EndCallButton} /></Link>
           </div>
 
           {connecting && <p>Connecting...</p>}

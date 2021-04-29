@@ -11,7 +11,6 @@ import {
 export default class CallWrapper {
     constructor(endpoint, key) {
         this.endpoint = endpoint;
-        this.key = key; //Not relevant in our version, remove
 
         // private
         this.session = null;  //From AWS SDK, intern prop för sdk'n
@@ -29,18 +28,18 @@ export default class CallWrapper {
     /**
      * Connect to a chime meeting
      *
-     * @param   {String}  externalIds  an array of external user ids
+     * @param   {array of Ints}  externalIds an array of external user ids
      */
-    async connectToChimeMeeting(externalIds) {
+    async connectToChimeMeeting(externalIds,residentToken) {
         if (this.hasActiveCall()) {
             throw new Error('meeting session already in progress');
         }
 
         let meetingConfig;
         try {
-            const response = await axios.post(`${this.endpoint}/call`, {relatives:externalIds}, { //
+            const response = await axios.post(`${this.endpoint}/call`, {'relatives':externalIds}, { //
                 headers: {
-                    'Authorization': this.key,
+                    'Authorization': residentToken,
                     'Content-Type':'application/json'
                 }
             });
