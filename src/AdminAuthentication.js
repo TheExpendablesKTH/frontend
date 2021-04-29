@@ -6,10 +6,12 @@ import anim from "./animMov.gif";
 
 function AdminAuthentication(){
 
+    const [debug, setDebug] = useState(false);  //DEBUG!!
 
     const [loading, setLoading] = useState(true);
+    const [lockLoading, setLockLoading] = useState(false);
     const [hasToken, setHasToken] = useState(false);
-    const [hasAdmin, setHasAdmin] = useState("");
+    const [hasAdmin, setHasAdmin] = useState("none");
     const inputName = useRef();
     const inputUserName = useRef();
     const inputPassword = useRef();
@@ -24,45 +26,56 @@ function AdminAuthentication(){
                 }else{
                   setHasToken(false); //should be false, but can be set to true to auto-skip
                   setLoading(false);
-              
                 }
             };
             check();
         },[loading]);
 
     function userClickedAuthenticate(name, username, password){
+      setLockLoading(true);
+      setLoading(true);
         const fetchAndStoreData = async () => {
-          setHasAdmin(  await axios.post(api_url + "/admin",
-          {'name':name,'username':username,'password':password},
-          {headers:
-          {'Content-Type':'application/json','Authorization':localStorage.getItem("DeviceToken")}}));
-
+          setHasAdmin(
+            JSON.stringify(
+              await axios.post(api_url + "/admin",
+                {'name':name,'username':username,'password':password},
+                {headers:
+                {'Content-Type':'application/json','Authorization':localStorage.getItem("DeviceToken")}}
+              )
+            )
+          );
           getAndStoreToken(username, password);
         };
         fetchAndStoreData();
         }
 
     function getAndStoreToken(username, password){
+
         const getAndStoreTokenTwo = async () => {
         if(hasAdmin!==""){
+
           const result = await axios.post(api_url + "/authenticate/admin",
           {'username':username,'password':password},{headers:
           {'Content-Type':'application/json','Authorization':localStorage.getItem("DeviceToken")}});
 
           localStorage.setItem("AdminToken", result.data.token);
-        setLoading(true);
-      }else{
-        setTimeout(getAndStoreToken, 10);
-      }
-    };
+          setLoading(true);
+          setDebug(true);
+        }else{
+
+          setTimeout(getAndStoreTokenTwo, 10);
+        }
+      };
     getAndStoreTokenTwo();
-      }
+    }
+
     /*    useEffect(() => inputRef.current.focus(), [inputRef]); */ //copied from chime-poc
 
 
     return (
       <div>
-        {loading && <div className="absoluteCenter"> <img src={anim} alt="" /></div>}
+        {debug && <div> DEBUG IS NOW TRUE</div>}
+        {loading && <div className="absoluteCenter"> <img src={anim} alt="" />Response is: {hasAdmin}</div>}
         {!loading && hasToken && <Redirect to="/Start"/>}
         {!loading && !hasToken && <div className="center">
           <h1>No local admin detected please contact <br/> Dogood at ___-___ __ __</h1>
