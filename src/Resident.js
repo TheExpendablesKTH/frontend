@@ -18,7 +18,7 @@ function Resident(){
         },[]);
     
     return (
-        <div><ul class="breadcrumb br1">
+        <div><ul className="breadcrumb br1">
         <li>Starta samtal: Väljer boende som ska ringa</li>
         </ul>
             <div className="button"></div>

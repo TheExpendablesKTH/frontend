@@ -4,40 +4,35 @@ import React, { useEffect, useState, useRef } from "react";
 import './styleOne.css';
 import CallWrapper from "./call";
 import EndCallButton from "./endCallButton.png";
-
-const CallView = () => {
-    const externalId = findGetParameter("externalId");
-    const inputRef = useRef();
+import axios from "axios";
+const CallView = (props) =>{
+    const [externalIds,setExternalIds] =  useState(findGetParameter("selected").split(",").map((r)=>Number(r)));
+    const api_url = 'http://master.api.dd1369-meetings.com';
+    const device_token = localStorage.getItem("DeviceToken");
+    const resident_id = findGetParameter("resident_id");    
     const [connecting, setConnecting] = useState(true);
-    const [call] = useState(new CallWrapper('http://master.api.dd1369-meetings.com', 'foobar'));
+    const [call] = useState(new CallWrapper(api_url));  
+    const [streaming, setStreaming] = useState(false);  
 
-
-
-
+    useEffect(() => {        
+        alert(externalIds);
+        const connect = async () => {                                    
+            if (!externalIds) return;            
+            const response = await axios.post(api_url+"/authenticate/resident",{'id':resident_id},{headers:{'Content-Type':'application/json','Authorization':device_token}});            
+            await call.connectToChimeMeeting(externalIds,response.data.token);          
+            call.startWatching();
+        };
+        connect();
+    }, [externalIds, call]);
 
     useEffect(() => {
-      const connect = async () => {
-        if (!externalId) return;
-        await call.connectToChimeMeeting(externalId);
-        call.startWatching();
-    }; connect();
-
-      doAStream();
-    }, [call, externalId]);
-
-    function doAStream(){
-      if(call.hasActiveCall()){
-          setConnecting(false);
         const stream = async () => {
             call.setAudioInputDeviceToDefault();
             const mediaStream = await call.getVideoMediaStream();
-            await call.broadcastVideo(mediaStream);};
-        stream();
-      }else{
-        setTimeout(doAStream, 1000);
-      }
-    }
-
+            await call.broadcastVideo(mediaStream);
+        };
+        streaming && stream();
+    }, [streaming, call]);
 
     //shamelessly stolen from frontend repo src/Relative.js
     function findGetParameter(parameterName) {
@@ -58,11 +53,13 @@ const CallView = () => {
     return (
       <div>
           <div id="EndCall-Button">
-            <Link to = "./StartView"><img src={EndCallButton} /></Link>
+            <Link to = "./Start"><img src={EndCallButton} /></Link>
+            <button onClick={() => setStreaming(true)}>Stream</button>
           </div>
 
           {connecting && <p>Connecting...</p>}
 
+          
           <div className="tileContainer">
             <div className="tileSubContainer" id="tiles">
             </div>
