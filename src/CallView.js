@@ -12,10 +12,10 @@ const CallView = (props) =>{
     const resident_id = findGetParameter("resident_id");
     const [connecting, setConnecting] = useState(true);
     const [call] = useState(new CallWrapper(api_url));
-    const [streaming, setStreaming] = useState(false);
+    const [streaming, setStreaming] = useState(true);
 
     useEffect(() => {
-        alert(externalIds);
+        
         const connect = async () => {
             if (!externalIds) return;
             const response = await axios.post(api_url+"/authenticate/resident",{'id':resident_id},{headers:{'Content-Type':'application/json','Authorization':device_token}});
@@ -23,16 +23,23 @@ const CallView = (props) =>{
             call.startWatching();
         };
         connect();
+        doTheCall();
     }, [externalIds, call]);
 
-    useEffect(() => {
-        const stream = async () => {
-            call.setAudioInputDeviceToDefault();
-            const mediaStream = await call.getVideoMediaStream();
-            await call.broadcastVideo(mediaStream);
-        };
-        streaming && stream();
-    }, [streaming, call]);
+    function doTheCall() {
+
+        if(call.hasActiveCall()){
+          const stream = async () => {
+              call.setAudioInputDeviceToDefault();
+              const mediaStream = await call.getVideoMediaStream();
+              await call.broadcastVideo(mediaStream);
+          };
+            stream();
+          }else {
+              setTimeout(doTheCall, 100);
+          }
+    }
+
 
     //shamelessly stolen from frontend repo src/Relative.js
     function findGetParameter(parameterName) {
@@ -52,9 +59,10 @@ const CallView = (props) =>{
 
     return (
       <div>
+
           <div id="EndCall-Button">
             <Link to = "./Start"><img src={EndCallButton} /></Link>
-            <button onClick={() => setStreaming(true)}>Stream</button>
+
           </div>
 
           <div className="tileContainer">
