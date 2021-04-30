@@ -9,17 +9,17 @@ const CallView = (props) =>{
     const [externalIds,setExternalIds] =  useState(findGetParameter("selected").split(",").map((r)=>Number(r)));
     const api_url = 'http://master.api.dd1369-meetings.com';
     const device_token = localStorage.getItem("DeviceToken");
-    const resident_id = findGetParameter("resident_id");    
+    const resident_id = findGetParameter("resident_id");
     const [connecting, setConnecting] = useState(true);
-    const [call] = useState(new CallWrapper(api_url));  
-    const [streaming, setStreaming] = useState(false);  
+    const [call] = useState(new CallWrapper(api_url));
+    const [streaming, setStreaming] = useState(false);
 
-    useEffect(() => {        
+    useEffect(() => {
         alert(externalIds);
-        const connect = async () => {                                    
-            if (!externalIds) return;            
-            const response = await axios.post(api_url+"/authenticate/resident",{'id':resident_id},{headers:{'Content-Type':'application/json','Authorization':device_token}});            
-            await call.connectToChimeMeeting(externalIds,response.data.token);          
+        const connect = async () => {
+            if (!externalIds) return;
+            const response = await axios.post(api_url+"/authenticate/resident",{'id':resident_id},{headers:{'Content-Type':'application/json','Authorization':device_token}});
+            await call.connectToChimeMeeting(externalIds,response.data.token);
             call.startWatching();
         };
         connect();
@@ -57,9 +57,6 @@ const CallView = (props) =>{
             <button onClick={() => setStreaming(true)}>Stream</button>
           </div>
 
-          {connecting && <p>Connecting...</p>}
-
-          
           <div className="tileContainer">
             <div className="tileSubContainer" id="tiles">
             </div>
