@@ -20,7 +20,7 @@ function AdminAuthentication(){
 
     useEffect(() => {
         const check = async () =>{
-                if(localStorage.getItem("admin_token")!==null){
+                if(localStorage.getItem("AdminToken")!==null){
                   setHasToken(true);
                   setLoading(false);
                 }else{
@@ -58,7 +58,7 @@ function AdminAuthentication(){
           {'username':username,'password':password},{headers:
           {'Content-Type':'application/json','Authorization':localStorage.getItem("DeviceToken")}});
 
-          localStorage.setItem("admin_token", result.data.token);
+          localStorage.setItem("AdminToken", result.data.token);
           setLoading(true);
           setDebug(true);
         }else{
