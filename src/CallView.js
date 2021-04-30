@@ -5,44 +5,34 @@ import './styleOne.css';
 import CallWrapper from "./call";
 import EndCallButton from "./endCallButton.png";
 import axios from "axios";
-function CallView(props) {
-    const externalIds = [7];/*props.location.selected .map(r => r.id) */;
+const CallView = (props) =>{
+    const [externalIds,setExternalIds] =  useState(findGetParameter("selected").split(",").map((r)=>Number(r)));
     const api_url = 'http://master.api.dd1369-meetings.com';
     const device_token = localStorage.getItem("DeviceToken");
-    const resident_id = findGetParameter("resident_id");
-    const inputRef = useRef();
+    const resident_id = findGetParameter("resident_id");    
     const [connecting, setConnecting] = useState(true);
-    const [call] = useState(new CallWrapper(api_url));
-    const [residentToken,setResidentToken] = useState(null);
-    useEffect(() => {
-      const getResidentToken = async() =>{      
-        const result = await axios.post(api_url+"/authenticate/resident",{'id':resident_id},{headers:{'Content-Type':'application/json','Authorization':device_token}});
-        setResidentToken(result.data.token);
-        if (!residentToken || !externalIds){ return;}
-        await call.connectToChimeMeeting(externalIds,residentToken);
-        call.startWatching();
-      }; getResidentToken();
-    //   const connect = async () => {
-    //     if (!residentToken || !externalIds) return;
-    //     alert("in");
-        
-    // }; connect();
-      doAStream();
-    }, [call, externalIds]);
+    const [call] = useState(new CallWrapper(api_url));  
+    const [streaming, setStreaming] = useState(false);  
 
-    function doAStream(){
-      if(call.hasActiveCall()){
-          setConnecting(false);
+    useEffect(() => {        
+        alert(externalIds);
+        const connect = async () => {                                    
+            if (!externalIds) return;            
+            const response = await axios.post(api_url+"/authenticate/resident",{'id':resident_id},{headers:{'Content-Type':'application/json','Authorization':device_token}});            
+            await call.connectToChimeMeeting(externalIds,response.data.token);          
+            call.startWatching();
+        };
+        connect();
+    }, [externalIds, call]);
+
+    useEffect(() => {
         const stream = async () => {
             call.setAudioInputDeviceToDefault();
             const mediaStream = await call.getVideoMediaStream();
-            await call.broadcastVideo(mediaStream);};
-        stream();
-      }else{
-        setTimeout(doAStream, 1000);
-      }
-    }
-
+            await call.broadcastVideo(mediaStream);
+        };
+        streaming && stream();
+    }, [streaming, call]);
 
     //shamelessly stolen from frontend repo src/Relative.js
     function findGetParameter(parameterName) {
@@ -64,10 +54,12 @@ function CallView(props) {
       <div>
           <div id="EndCall-Button">
             <Link to = "./Start"><img src={EndCallButton} /></Link>
+            <button onClick={() => setStreaming(true)}>Stream</button>
           </div>
 
           {connecting && <p>Connecting...</p>}
 
+          
           <div className="tileContainer">
             <div className="tileSubContainer" id="tiles">
             </div>

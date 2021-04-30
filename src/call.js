@@ -9,11 +9,11 @@ import {
 
 
 export default class CallWrapper {
-    constructor(endpoint, key) {
+    constructor(endpoint) {
         this.endpoint = endpoint;
 
         // private
-        this.session = null;  //From AWS SDK, intern prop för sdk'n
+        this.session = null; //From AWS SDK, intern prop för sdk'n
     }
 
     /**
@@ -38,9 +38,57 @@ export default class CallWrapper {
         let meetingConfig;
         try {
             const response = await axios.post(`${this.endpoint}/call`, {'relatives':externalIds}, { //
-                headers: {
-                    'Authorization': residentToken,
-                    'Content-Type':'application/json'
+                headers: {                    
+                    'Content-Type':'application/json',
+                    'Authorization': residentToken
+                }
+            });
+            meetingConfig = new MeetingSessionConfiguration(
+                {
+                    'Meeting': {
+                        'MeetingId': response.data.meetingId,
+                        'MediaPlacement': {
+                            'AudioHostUrl': response.data.audioHostUrl,
+                            'AudioFallbackUrl': response.data.audioFallbackUrl,
+                            'ScreenDataUrl': response.data.screenDataUrl,
+                            'ScreenSharingUrl': response.data.screenSharingUrl,
+                            'ScreenViewingUrl': response.data.screenViewingUrl,
+                            'SignalingUrl': response.data.signalingUrl,
+                            'TurnControlUrl': response.data.turnControlUrl,
+                        },
+                    },
+                },
+                {
+                    'Attendee': {
+                        'ExternalUserId': response.data.externalUserId,
+                        'AttendeeId': response.data.attendeeId,
+                        'JoinToken': response.data.joinToken,
+                    },
+                }
+            );
+        } catch (e) {
+            console.error('failed to connect to api');
+            console.error(e);
+            return;
+        }
+
+        const logger = new ConsoleLogger('Chime Logs', LogLevel.WARN);
+        const deviceController = new DefaultDeviceController(logger);
+        this.session = new DefaultMeetingSession(meetingConfig, logger, deviceController);
+        console.log('successfully connected to chime meeting');
+    }
+
+    async connectToActiveChimeMeeting(residentToken) {
+        if (this.hasActiveCall()) {
+            throw new Error('meeting session already in progress');
+        }
+
+        let meetingConfig;
+        try {
+            const response = await axios(`${this.endpoint}/call`,{ //
+                headers: {                    
+                    'Content-Type':'application/json',
+                    'Authorization': residentToken
                 }
             });
             meetingConfig = new MeetingSessionConfiguration(
