@@ -19,6 +19,8 @@ import ConfirmDeleteRes from './ConfirmDeleteRes';
 import DeleteResFeedback from './DeleteResFeedback';
 import ConfirmDeleteRel from './ConfirmDeleteRel';
 import DeleteRelFeedback from './DeleteRelFeedback';
+import UpdateResFeedback from './UpdateResFeedback';
+import UpdateRelFeedback from './UpdateRelFeedback';
 import CallView from './CallView';
 
 function App() {
@@ -43,6 +45,8 @@ function App() {
       <Route exact path = "/DeleteResFeedback" component = {DeleteResFeedback}/>
       <Route exact path = "/ConfirmDeleteRel" component = {ConfirmDeleteRel}/>
       <Route exact path = "/DeleteRelFeedback" component = {DeleteRelFeedback}/>
+      <Route exact path = "/UpdateResFeedback" component = {UpdateResFeedback}/>
+      <Route exact path = "/UpdateRelFeedback" component = {UpdateRelFeedback}/>
     </div>
   );
 }
