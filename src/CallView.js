@@ -8,7 +8,7 @@ import EndCallButton from './endCallButton.png';
 
 const CallView = (props) => {
   const [externalIds, setExternalIds] = useState(findGetParameter('selected').split(',').map((r) => Number(r)));
-  const apiUrl = 'http://master.api.dd1369-meetings.com';
+  const apiUrl = 'https://master.api.dd1369-meetings.com';
   const device_token = localStorage.getItem('DeviceToken');
   const resident_id = findGetParameter('resident_id');
   const [connecting, setConnecting] = useState(true);

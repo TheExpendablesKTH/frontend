@@ -7,7 +7,7 @@ import { findGetParameter } from './Relative';
 function ConfirmDeleteRes() {
   const resident_id = findGetParameter('resident_id');
   const resident_name = findGetParameter('resident_name');
-  const apiUrl = 'http://master.api.dd1369-meetings.com';
+  const apiUrl = 'https://master.api.dd1369-meetings.com';
   const admin_token = localStorage.getItem('admin_token');
   const deleteResident = async (e) => {
     e.preventDefault();

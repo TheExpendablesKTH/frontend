@@ -10,7 +10,7 @@ function Relative() {
   const resident_id = findGetParameter('resident_id');
   const resident_name = findGetParameter('resident_name');
 
-  const apiUrl = `http://master.api.dd1369-meetings.com/residents/${resident_id}/relatives`;
+  const apiUrl = `https://master.api.dd1369-meetings.com/residents/${resident_id}/relatives`;
 
   const [selected, setSelected] = useState([]);
 

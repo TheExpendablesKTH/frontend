@@ -10,7 +10,7 @@ function RelativeAdd() {
   const nameToSave = useRef(null);
   const phoneToSave = useRef(null);
   const phoneRegex = /^\+[0-9]{1,15}$/;
-  const apiUrl = `http://master.api.dd1369-meetings.com/residents/${resident_id}/relatives`;
+  const apiUrl = `https://master.api.dd1369-meetings.com/residents/${resident_id}/relatives`;
   const saveRelative = async (e) => {
     e.preventDefault();
     if (phoneRegex.test(phoneToSave.current.value)) {

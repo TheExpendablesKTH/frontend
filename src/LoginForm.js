@@ -6,7 +6,7 @@ import backarrow from './back-arrow.png';
 function LoginForm() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [failed, setFailed] = useState(false);
-  const apiUrl = 'http://master.api.dd1369-meetings.com/';
+  const apiUrl = 'https://master.api.dd1369-meetings.com/';
   const device_token = localStorage.getItem('DeviceToken');
 
   const handleSubmit = async (e) => {

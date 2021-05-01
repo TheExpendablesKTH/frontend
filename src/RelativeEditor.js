@@ -13,7 +13,7 @@ function RelativeEditor() {
   const resident_id = findGetParameter('resident_id');
   const relative_id = findGetParameter('relative_id');
   const resident_name = findGetParameter('resident_name');
-  const apiUrl = 'http://master.api.dd1369-meetings.com';
+  const apiUrl = 'https://master.api.dd1369-meetings.com';
   const admin_token = localStorage.getItem('admin_token');
 
   const updateRelative = async (e) => {

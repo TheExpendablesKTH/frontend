@@ -8,7 +8,7 @@ function DeviceAuthentication() {
   const [hasToken, setHasToken] = useState(false);
   const inputRef = useRef();
   const [password, setPassword] = useState(''); // DEBUG!!
-  const apiUrl = 'http://master.api.dd1369-meetings.com';
+  const apiUrl = 'https://master.api.dd1369-meetings.com';
 
   useEffect(() => {
     const check = async () => {

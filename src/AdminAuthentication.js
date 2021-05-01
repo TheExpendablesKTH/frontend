@@ -12,7 +12,7 @@ function AdminAuthentication() {
   const inputName = useRef();
   const inputUserName = useRef();
   const inputPassword = useRef();
-  const apiUrl = 'http://master.api.dd1369-meetings.com';
+  const apiUrl = 'https://master.api.dd1369-meetings.com';
 
   useEffect(() => {
     const check = async () => {

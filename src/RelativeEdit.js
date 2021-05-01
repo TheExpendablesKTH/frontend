@@ -8,7 +8,7 @@ function RelativeEdit() {
   const [loading, setLoading] = useState(true);
   const [relatives, setRelatives] = useState(null);
   const resident_id = findGetParameter('resident_id');
-  const apiUrl = `http://master.api.dd1369-meetings.com/residents/${resident_id}/relatives`;
+  const apiUrl = `https://master.api.dd1369-meetings.com/residents/${resident_id}/relatives`;
   const resident_name = findGetParameter('resident_name');
 
   useEffect(() => {

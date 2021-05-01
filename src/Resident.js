@@ -6,7 +6,7 @@ import backarrow from './back-arrow.png';
 function Resident() {
   const [loading, setLoading] = useState(true);
   const [residents, setResidents] = useState(null);
-  const apiUrl = 'http://master.api.dd1369-meetings.com/residents';
+  const apiUrl = 'https://master.api.dd1369-meetings.com/residents';
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(apiUrl, { headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('admin_token') } });
