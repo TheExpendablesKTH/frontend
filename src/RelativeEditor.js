@@ -63,11 +63,11 @@ function RelativeEditor() {
                                 <label>                                
                                     <p class="form-headline">Namn:</p>
                                     <br></br>
-                                    <input type="text" name="name" ref={nameToSave} />
+                                    <input type="text" name="name" ref={nameToSave} required/>
                                     <br></br>
                                     <p class="form-headline" >Telefonnummer:</p>
                                     <br></br>
-                                    <input type="text" name="phone" ref={phoneToSave} />
+                                    <input type="text" name="phone" ref={phoneToSave} required/>
                                 </label>
                                 <br></br>
                                 <input type="submit" value="Spara" />
