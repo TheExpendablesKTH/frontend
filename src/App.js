@@ -16,7 +16,9 @@ import AdminAuthentication from './AdminAuthentication';
 import LoginForm from './LoginForm';
 import LoginConfirm from './LoginConfirm';
 import ConfirmDeleteRes from './ConfirmDeleteRes';
+import DeleteResFeedback from './DeleteResFeedback';
 import ConfirmDeleteRel from './ConfirmDeleteRel';
+import DeleteRelFeedback from './DeleteRelFeedback';
 import CallView from './CallView';
 
 function App() {
@@ -38,7 +40,9 @@ function App() {
       <Route exact path = "/LoginForm" component = {LoginForm} />
       <Route exact path = "/LoginConfirm" component = {LoginConfirm} />
       <Route exact path = "/ConfirmDeleteRes" component = {ConfirmDeleteRes}/>
+      <Route exact path = "/DeleteResFeedback" component = {DeleteResFeedback}/>
       <Route exact path = "/ConfirmDeleteRel" component = {ConfirmDeleteRel}/>
+      <Route exact path = "/DeleteRelFeedback" component = {DeleteRelFeedback}/>
     </div>
   );
 }
