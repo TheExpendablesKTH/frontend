@@ -8,10 +8,19 @@ function RelativeAdd() {
     const resident_id = findGetParameter("resident_id");
     const nameToSave = useRef(null);
     const phoneToSave = useRef(null);
+    const phoneRegex = /^\+\d+/;
     const api_url = "http://master.api.dd1369-meetings.com/residents/"+resident_id+"/relatives";
     const saveRelative = async (e) => {
-        e.preventDefault();            
-        await axios.post(api_url,{'name':nameToSave.current.value,'phone':phoneToSave.current.value},{headers: {'Content-Type':'application/json', 'Authorization':localStorage.getItem("admin_token")}});            
+      e.preventDefault();
+      if(phoneRegex.test(phoneToSave.current.value)){
+        await axios.post(api_url,{'name':nameToSave.current.value,'phone':phoneToSave.current.value},{headers: {'Content-Type':'application/json', 'Authorization':localStorage.getItem("admin_token")}});
+      }else{
+        window.alert("Nummret måste börja med landskod (t.ex. +46)"+phoneToSave.current.value);
+      }
+    };
+//
+    const checkAndSubmit = async (e) =>{
+
     };
 
     return (
