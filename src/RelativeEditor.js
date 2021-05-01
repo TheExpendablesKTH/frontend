@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import backarrow from './back-arrow.png';
 import axios from 'axios';
 import { findGetParameter } from './Relative';
@@ -8,6 +8,7 @@ function RelativeEditor() {
     const [loading, setLoading] = useState(false);
     const [relatives, setRelatives] = useState(null);
     const [relative, setRelative] = useState(null);
+    const [updated, setUpdated] = useState(false);
     const nameToSave = useRef(null);
     const phoneToSave = useRef(null);
     const resident_id = findGetParameter("resident_id");
@@ -23,6 +24,7 @@ function RelativeEditor() {
             const saveRequest = axios.post(api_url + "/residents/"+resident_id + "/relatives",{'name':nameToSave.current.value, 'phone':phoneToSave.current.value},{headers: {'Content-Type':'application/json', 'Authorization':admin_token}});      
             await axios.all([deleteRequest,saveRequest]);
             setLoading(false);
+            setUpdated(true);
         };
     
 
@@ -37,7 +39,8 @@ function RelativeEditor() {
     }, []);
 
     return (
-        <div><ul class="breadcrumb br2">
+        <div>{updated && <Redirect to={{pathname:"/UpdateRelFeedback", relative_name:relative.name, resident_id:resident_id, resident_name:resident_name}}/>}        
+            {!updated && <div><ul class="breadcrumb br2">
         <li>Redigera: Redigerar anhörig till {resident_name}</li>
         </ul>
             <div className="upper-left">
@@ -75,7 +78,7 @@ function RelativeEditor() {
                         </div>
                     </div>
 
-                )}
+                )}</div>}
         </div>
 
     );
