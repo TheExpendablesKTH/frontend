@@ -7,13 +7,13 @@ import { findGetParameter } from './Relative';
 function RelativeEditor() {
   const [loading, setLoading] = useState(false);
   const [relatives, setRelatives] = useState(null);
-  const [relative, setRelative] = useState(null);
   const [updated, setUpdated] = useState(false);
   const nameToSave = useRef(null);
   const phoneToSave = useRef(null);
   const resident_id = findGetParameter('resident_id');
   const relative_id = findGetParameter('relative_id');
   const resident_name = findGetParameter('resident_name');
+  const relative_name = findGetParameter('relative_name');
   const api_url = 'https://master.api.dd1369-meetings.com';
   const admin_token = localStorage.getItem('admin_token');
 
@@ -31,7 +31,7 @@ function RelativeEditor() {
     <div>
       {updated && (
       <Redirect to={{
-        pathname: '/UpdateRelFeedback', relative_name: relative.name, resident_id, resident_name,
+        pathname: '/UpdateRelFeedback', relative_name: relative_name, resident_id, resident_name,
       }}
       />
       )}
@@ -47,7 +47,7 @@ function RelativeEditor() {
           <Link to={`/RelativeEdit?resident_id=${resident_id}&resident_name=${resident_name}`}><img src={backarrow} alt="backarrow" /></Link>
         </div>
         {
-          (loading || relatives == null || relative == null) ? (
+          (loading) ? (
             <div className="center paddingheader">
               <h1 className="headerstyle">Laddar...</h1>
               <link rel="stylesheet" href="styleOne.css" />
@@ -57,7 +57,7 @@ function RelativeEditor() {
               <div className="center paddingheader">
                 <h1 className="headerstyle">
                   Redigera
-                  {relative.name}
+                  {relative_name}
                 </h1>
                 <link rel="stylesheet" href="styleOne.css" />
               </div>
@@ -77,10 +77,10 @@ function RelativeEditor() {
                 </form>
                 <br />
                 <br />
-                <Link to={`/ConfirmDeleteRel?resident_id=${resident_id}&resident_name=${resident_name}&relative_id=${relative_id}&relative_name=${relative.name}`}>
+                <Link to={`/ConfirmDeleteRel?resident_id=${resident_id}&resident_name=${resident_name}&relative_id=${relative_id}&relative_name=${relative_name}`}>
                   <button className="button button2" id="raderaAnhorig">
                     Radera
-                    {relative.name}
+                    {relative_name}
                   </button>
                 </Link>
               </div>
