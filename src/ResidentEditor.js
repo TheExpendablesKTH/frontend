@@ -18,7 +18,7 @@ function ResidentEditor() {
         </li>
       </ul>
       <div className="upper-left">
-        <Link to={`/RelativeEdit?resident_id=${resident_id}&resident_name=${resident_name}`}><img src={backarrow} /></Link>
+        <Link to={`/RelativeEdit?resident_id=${resident_id}&resident_name=${resident_name}`}><img src={backarrow} alt="backarrow"/></Link>
       </div>
       {
         (loading) ? (
