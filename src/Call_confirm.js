@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import backarrow from './back-arrow.png';
 
 function Call_confirm(props) {
-  const [loading, setLoading] = useState(true); // useless im p sure
   const [selected, setSelected] = useState([]);
   const [residentId, setResidentId] = useState();
   const [residentName, setResidentName] = useState();
@@ -14,7 +13,6 @@ function Call_confirm(props) {
       setResidentId(props.location.residentId);
       setResidentName(props.location.residentName);
     }
-    setLoading(false);
   }, []);
 
   const removeRelative = (relative) => {
@@ -36,7 +34,7 @@ function Call_confirm(props) {
       <div className="button" />
       <div className="flexbox">
         <div className="flexbox columnThin topAligned">
-          <Link to={`/Relative?resident_id=${residentId}&resident_name=${residentName}`}><img src={backarrow} /></Link>
+          <Link to={`/Relative?resident_id=${residentId}&resident_name=${residentName}`}><img src={backarrow} alt="backarrow" /></Link>
         </div>
         <div className="flexbox columnThick topAligned">
           <h1 className="extra-large-text">Du har bjudit in:</h1>
