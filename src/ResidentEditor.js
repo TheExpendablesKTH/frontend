@@ -53,6 +53,16 @@ function ResidentEditor() {
                 <link rel="stylesheet" href="styleOne.css" />
               </div>
               <div className="center">
+                {/* The below commented out section is supposed to be used for updating a resident's name but at the moment of writing the API does not support updating without deleting the resident and all it's relatives */}
+                {/*<form onSubmit={updateResident}>
+                  <label>                                
+                    <p class="form-headline">Namn:</p>
+                    <br></br>
+                    <input type="text" name="name" ref={nameToSave} required/>
+                  </label>
+                <br></br>
+                <input type="submit" value="Spara"/>
+                </form>*/}
                 <br />
                 <br />
                 <Link to={`/ConfirmDeleteRes?resident_id=${resident_id}&resident_name=${resident_name}`}>
