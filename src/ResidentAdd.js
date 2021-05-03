@@ -5,7 +5,7 @@ import backarrow from './back-arrow.png';
 
 function ResidentAdd() {
   const nameToSave = useRef(null);
-  const api_url = 'http://master.api.dd1369-meetings.com/residents';
+  const api_url = 'https://master.api.dd1369-meetings.com/residents';
   const admin_token = localStorage.getItem('admin_token');
   const [added, setAdded] = useState(false);
   const saveResident = async (e) => {
