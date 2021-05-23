@@ -45,16 +45,15 @@ function Call_confirm(props) {
             <div className="scroll-outer largeScroll">
               <div className="scroll-inner">
                 {(selected.length === 0) ? (
-                    <p>Du har inte valt några kontakter! Gå tillbaka och försök igen</p>
-                  ) : (
-                    selected.sort((a, b) => ((a.name > b.name) ? 1 : -1)).map((relative) => (
-                      <p className="scroll-row">
-                        <span className="name-plate">{relative.name}</span>
-                        <span className="alter-button remove-button" onClick={() => removeRelative(relative)}>-</span>
-                      </p>
-                    ))
-                  )
-                }
+                  <p>Du har inte valt några kontakter! Gå tillbaka och försök igen</p>
+                ) : (
+                  selected.sort((a, b) => ((a.name > b.name) ? 1 : -1)).map((relative) => (
+                    <p className="scroll-row">
+                      <span className="name-plate">{relative.name}</span>
+                      <span className="alter-button remove-button" onClick={() => removeRelative(relative)}>-</span>
+                    </p>
+                  ))
+                )}
               </div>
             </div>
           </div>
@@ -64,7 +63,7 @@ function Call_confirm(props) {
             <h1 className="right-button call-button large-button white-text extra-large-text centerDivVertical">
               Påbörja samtal
               <br />
-              {' '}
+              &nbsp;
               &#9742;
             </h1>
           </Link>

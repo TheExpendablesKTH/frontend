@@ -24,7 +24,7 @@ function Resident() {
       <div className="button" />
       <div className="flexbox">
         <div className="flexbox topAligned">
-          <Link to="/Start"><img src={backarrow} alt="backarrow"/></Link>
+          <Link to="/Start"><img src={backarrow} alt="backarrow" /></Link>
 
         </div>
         <div className="flexbox topAligned">
